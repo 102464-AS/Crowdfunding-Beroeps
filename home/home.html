@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Landing Page</title>
+  <title>Home</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Bootstrap 5 -->
@@ -16,7 +16,7 @@
 
 <!-- NAVBAR -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-olive px-4">
-  <a class="navbar-brand fw-bold" href="#">Grafisch Lyceum</a>
+  <a class="navbar-brand fw-bold" href="#">logo/img</a>
 
   <button class="navbar-toggler" type="button"
           data-bs-toggle="collapse"
@@ -31,7 +31,7 @@
 
   <div class="collapse navbar-collapse" id="mainNavbar">
     <ul class="navbar-nav mx-auto text-center mb-2 mb-lg-0">
-      <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+      <li class="nav-item"><a class="nav-link" href="./home.html">Home</a></li>
       <li class="nav-item"><a class="nav-link active" href="#">Explore</a></li>
       <li class="nav-item"><a class="nav-link" href="#">Profile</a></li>
     </ul>
@@ -41,10 +41,11 @@
 </nav>
 
 <!-- HERO -->
-<section class="hero d-flex align-items-center">
-  <div class="hero-overlay"></div>
-  <div class="container hero-content text-white">
-    <h1 class="fw-bold">H1</h1>
+<section class="hero d-flex align-items-center position-relative" style="height: 500px; overflow: hidden;">
+  <img src="../home/img/image.png" alt="Hero" class="position-absolute w-100 h-100" style="object-fit: cover;">
+  <div class="hero-overlay position-absolute w-100 h-100"></div>
+  <div class="container hero-content text-white position-relative">
+    <h1 class="fw-bold text-dark">oooooh placeholder magie</h1>
     <button class="btn btn-light mt-3">Button</button>
   </div>
 </section>
