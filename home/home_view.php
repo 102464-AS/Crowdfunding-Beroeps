@@ -50,7 +50,7 @@
   </div>
 </section>
 
-<!-- FEATURES -->
+<!-- CARDS -->
 <section class="bg-mustard py-5">
   <div class="container">
     <div class="row text-center g-4">
@@ -78,7 +78,7 @@
   </div>
 </section>
 
-<!-- DONATE -->
+<!-- DONATE SECTION -->
 <section class="py-5 bg-mustard">
   <div class="container bg-light-green rounded p-4">
     <h3 class="text-center fw-bold mb-4">Donate</h3>
