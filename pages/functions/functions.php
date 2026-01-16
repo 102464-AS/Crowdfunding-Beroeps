@@ -96,7 +96,33 @@ function fetchWork(PDO $pdo, int $ID): array {
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
-function insertTest(PDO $pdo, string $naam, string $beschrijving): string {
+function uploadWorks(PDO $pdo, int $userId, string $title, string $description, string $photo, string $role): string {
+    $queryWorks = "INSERT INTO works (title, description, photo) VALUES (:title, :description, :photo)";
+    $stmt = $pdo->prepare($queryWorks);
+    $stmt->bindParam(':title', $title);
+    $stmt->bindParam(':description', $description);
+    $stmt->bindParam(':photo', $photo);
+    $stmt->execute();
+
+    $workId = $pdo->lastInsertId();
+
+    $queryUserWorks = "INSERT INTO user_works (user_id, work_id, role) VALUES (:user_id, :work_id, :role)";
+    $stmt = $pdo->prepare($queryUserWorks); 
+    $stmt->bindParam(':user_id', $userId);
+    $stmt->bindParam(':work_id', $workId);
+    $stmt->bindParam(':role', $role);
+    $stmt->execute();
+
+    if ($stmt->rowCount()){
+        $resultaat = "Het item is toegevoegd!";
+    } else {
+        $resultaat = "Er is iets fout gegaan en het item is niet toegevoegd!";
+    }
+
+    return $resultaat;
+}
+
+function uploadDonations(PDO $pdo, string $naam, string $beschrijving): string {
     $query = "INSERT INTO {db_table_name} (naam, beschrijving) VALUES (:naam, :beschrijving)";
     $stmt = $pdo->prepare($query);
     $stmt->bindParam(':naam', $naam);
