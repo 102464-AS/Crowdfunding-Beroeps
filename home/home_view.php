@@ -31,8 +31,8 @@
 
   <div class="collapse navbar-collapse" id="mainNavbar">
     <ul class="navbar-nav mx-auto text-center mb-2 mb-lg-0">
-      <li class="nav-item"><a class="nav-link" href="./home.html">Home</a></li>
-      <li class="nav-item"><a class="nav-link active" href="#">Explore</a></li>
+      <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+      <li class="nav-item"><a class="nav-link" href="#">Explore</a></li>
       <li class="nav-item"><a class="nav-link" href="#">Profile</a></li>
     </ul>
 
@@ -86,7 +86,7 @@
       <div class="col-md-4"><input class="form-control" placeholder="Placeholder"></div>
       <div class="col-md-4"><input class="form-control" placeholder="Placeholder"></div>
       <div class="col-md-3"><input class="form-control" placeholder="Placeholder"></div>
-      <div class="col-md-1 text-end"><button class="btn btn-outline-dark">➤</button></div>
+      <div class="col-md-1 text-end"><button class="btn btn-outline-dark"><img src= "./img/send-button.png"></img></button></div>
     </div>
   </div>
 </section>

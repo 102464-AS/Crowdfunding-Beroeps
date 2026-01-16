@@ -25,11 +25,52 @@ body {
   color: var(--text-dark);
 }
 
+h5,
+p{
+
+  &:hover{
+    cursor: default;
+  }
+}
+
 /* =========================
    NAVBAR
 ========================= */
 .bg-olive {
   background-color: var(--olive);
+}
+
+.bg-light-green .form-control:focus,
+.bg-light-green .form-control:focus-visible,
+.bg-light-green .form-control.active {
+  background-color: #355273;
+  color: white;
+  outline: none;
+}
+
+button.btn-outline-dark {
+  border: none;             
+  background-color: transparent; 
+  padding: 0.25rem 0.5rem;  
+  border-radius: 6px;       
+  transition: border 0.2s ease, background-color 0.2s ease;
+}
+
+button.btn-outline-dark:hover {
+  border: none;
+  background-color: transparent; 
+}
+
+button.btn-outline-dark img {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+  vertical-align: middle;
+  transition: transform 0.2s ease;
+}
+
+button.btn-outline-dark:hover img {
+  transform: scale(1.1);
 }
 
 .navbar-brand {
@@ -39,14 +80,15 @@ body {
 .nav-link {
   color: var(--white) !important;
   opacity: 0.85;
+  font-weight: 700;
 }
 
-.nav-link.active {
+.active {
   opacity: 1;
   position: relative;
 }
 
-.nav-link.active::after {
+.active::after {
   content: "";
   position: absolute;
   bottom: -4px;
