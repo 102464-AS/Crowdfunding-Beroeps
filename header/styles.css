@@ -1,0 +1,216 @@
+ @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+body,
+html{
+    padding: 0;
+    margin: 0;
+}
+
+#header{
+    background-color: #6B7A5E;
+    width: 100vw;
+    height: clamp(100px, 20vh, 168px);
+    display: flex;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+}
+
+#logo{
+    padding-left: clamp(10px, 5%, 30px);
+    width: 125px;
+    height: auto;
+}
+
+#header-ul {
+    color: white;
+    display: flex;
+    gap: clamp(10px, 15%, 65px);
+    list-style: none;
+}
+
+#header-ul li {
+    font-size: clamp(24px, 5vw, 32px);
+    position: relative; 
+    padding-bottom: 5px; 
+    cursor: pointer;
+}
+
+#header-ul li::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    transform: translateX(-50%) scale(0);
+    width: 110%;
+    border-radius: 3px;
+    height: clamp(3px, 2vh, 6px);
+    background-color: #FFD04A;
+    opacity: 0;
+    transition: opacity 0.2s, transform 0.2s; 
+}
+
+#header-ul li:hover::after {
+    opacity: 1;
+    transform: translateX(-50%) scale(1); 
+}
+
+#account {
+    margin-left: auto;
+    margin-right: clamp(10px,3vw,75px);
+    border-radius: 50%;
+}
+
+#account-img{
+    width: 85px;
+    height: auto;
+    border-radius: 50%;
+
+    &:hover{
+        cursor: pointer;
+    }
+}
+
+#header-mobile{
+    display: none;
+    background-color: #6B7A5E;
+    width: 100vw;
+    height: clamp(100px, 20vh, 168px);
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+}
+
+@media (max-width: 550px) {
+    #header{
+        display: none;
+    } 
+    
+    #header-mobile{
+        display: flex;
+    }
+}
+
+#account-ul {
+    box-sizing: border-box;
+    list-style: none;
+    width: clamp(150px, 15vw, 250px); 
+    height: fit-content;
+    background-color: #FFCE41;
+    position: absolute;
+    border-radius: 24px;
+    padding: clamp(8px, 1.5vw, 16px); 
+    flex-direction: column;
+    gap: clamp(8px, 1.5vw, 16px); 
+    right: 15px;
+    top: 13vh;
+    opacity: 0;
+    transform: scale(0.9); 
+    transform-origin: top right;
+    pointer-events: none; 
+    transition: opacity 0.3s ease, transform 0.3s ease;
+
+    & li {
+        font-size: clamp(12px, 2.5vw, 18px); 
+        border-radius: 9px;
+        box-sizing: border-box;
+        padding: clamp(4px, 1vw, 10px); 
+        transition: background-color 0.2s;
+
+        &:hover {
+            background-color: #FFC417;
+            cursor: pointer;
+        }
+    }
+}
+
+#account-ul.active{
+        opacity: 1;
+    transform: scale(1); 
+    pointer-events: auto; 
+}
+
+#hamburger_menu {
+    margin-left: auto;
+    margin-right: clamp(30px,5vw,75px);
+    width: 35px;
+    height: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+
+    span {
+    display: block;
+    height: 4px;
+    width: 100%;
+    background-color: black;
+    border-radius: 2px;
+    }
+}
+
+#hamburger_menu.active {
+    pointer-events: none;
+    transform: scale(0.9); 
+    opacity: 0.6;            
+}
+
+#mobile-side-bar {
+    width: 40%;
+    height: 100vh;
+    background-color: #6b7a5e;
+    position: fixed;
+    right: 0;
+    top: 0;     
+    transform: translateX(100%);
+    opacity: 0;
+    pointer-events: none;       
+    transition: transform 0.35s ease, opacity 0.25s ease;
+    display: flex;
+    flex-direction: column;
+
+    & ul{
+        padding-top: 5vh;
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+
+        & li{
+            color: white;
+            font-size: clamp(24px, 5vw, 28px);
+            width: 80%;
+            padding-top: 5px;
+            padding-bottom: 5px; 
+            padding-left: 15px;
+
+            &.active{
+                background-color: #dbb146;
+                border-radius: 9px;
+            }
+        }
+    }
+}
+
+#mobile-side-bar.active {
+    transform: translateX(0); 
+    opacity: 1;
+    pointer-events: auto;
+}
+
+#account_section{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: clamp(75px, 15%, 100px);
+    margin-top: auto;  
+    
+    & #account-img{
+        padding-left: 5px;
+    }
+
+    & h2{
+        color: white;
+        font-size: clamp(12px, 2rem, 24px);
+    }
+}
