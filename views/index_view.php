@@ -100,7 +100,7 @@ include("./header.php");
       </div>
       <div class="col-md-4 mb-3">
         <h5 class="fw-bold mb-2">Contact</h5>
-        <p class="small mb-1 text-white-75">Email: <a href="mailto:crowdfunding@corporateslop.com" class="text-white text-decoration-none">crowdfunding@corporateslop.com</a></p>
+        <p class="small mb-1 text-white-75">Email: <a href="mailto:crowdfunding@gmail.com" class="text-white text-decoration-none">crowdfunding@gmail.com</a></p>
         <p class="small mb-0 text-white-75">Phone: +1 (555) 123-4567</p>
       </div>
     </div>
