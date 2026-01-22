@@ -35,6 +35,7 @@
 
         <div id="mobile-side-bar">
             <ul>
+                <li><a href="./index.php">Home</a></li>
                 <li><a href="./profile.php">Profile</a></li>
             </ul>
             <section id="account_section">
