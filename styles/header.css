@@ -151,7 +151,7 @@ html{
     transform: scale(0.9); 
     transform-origin: top right;
     transition: opacity 0.3s ease, transform 0.3s ease;
-    pointer-events: auto; 
+    pointer-events: none; 
 
     & a{
         text-decoration: none;
@@ -173,7 +173,8 @@ html{
 }
 
 #account-ul.active{
-        opacity: 1;
+    pointer-events: auto; 
+    opacity: 1;
     transform: scale(1); 
     
 }
