@@ -92,6 +92,7 @@ html{
 }
 
 #account-ul {
+    z-index: 1000000;
     box-sizing: border-box;
     list-style: none;
     width: clamp(150px, 15vw, 250px); 
@@ -156,6 +157,7 @@ html{
 }
 
 #mobile-side-bar {
+    z-index: 10000;
     width: 40%;
     height: 100vh;
     background-color: #6b7a5e;

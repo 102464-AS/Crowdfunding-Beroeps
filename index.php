@@ -9,40 +9,19 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Custom CSS -->
-  <link rel="stylesheet" href="home.css">
+  <link rel="stylesheet" href="./styles/home.css">
 </head>
 
 <body>
 
 <!-- NAVBAR -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-olive px-4">
-  <a class="navbar-brand fw-bold" href="#">logo/img</a>
-
-  <button class="navbar-toggler" type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#mainNavbar"
-          aria-controls="mainNavbar"
-          aria-expanded="false"
-          aria-label="Toggle navigation">
-    <span class="toggler-icon top-bar"></span>
-    <span class="toggler-icon middle-bar"></span>
-    <span class="toggler-icon bottom-bar"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="mainNavbar">
-    <ul class="navbar-nav mx-auto text-center mb-2 mb-lg-0">
-      <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
-      <li class="nav-item"><a class="nav-link" href="#">Explore</a></li>
-      <li class="nav-item"><a class="nav-link" href="#">Profile</a></li>
-    </ul>
-
-    <div class="profile-badge ms-lg-3">Li</div>
-  </div>
-</nav>
+<?php
+include("./header.php")
+?>
 
 <!-- HERO -->
 <section class="hero d-flex align-items-center position-relative" style="height: 500px; overflow: hidden;">
-  <img src="../home/img/image.png" alt="Hero" class="position-absolute w-100 h-100" style="object-fit: cover;">
+  <img src="./images/header.png" alt="Hero" class="position-absolute w-100 h-100" style="object-fit: cover;">
   <div class="hero-overlay position-absolute w-100 h-100"></div>
   <div class="container hero-content text-white position-relative">
     <h1 class="fw-bold text-dark">oooooh placeholder magie</h1>
@@ -86,7 +65,7 @@
       <div class="col-md-4"><input class="form-control" placeholder="Placeholder"></div>
       <div class="col-md-4"><input class="form-control" placeholder="Placeholder"></div>
       <div class="col-md-3"><input class="form-control" placeholder="Placeholder"></div>
-      <div class="col-md-1 text-end"><button class="btn btn-outline-dark"><img src= "./img/send-button.png"></img></button></div>
+      <div class="col-md-1 text-end"><button class="btn btn-outline-dark"><img src= "./images/send-button.png"></img></button></div>
     </div>
   </div>
 </section>
@@ -111,7 +90,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
 <!-- Custom JS -->
-<script src="home.js"></script>
+<script src="./js/home.js"></script>
 
 </body>
 </html>

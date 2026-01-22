@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="./styles/header.css">
 </head>
 <body>
     <div id="header">
-        <img id="logo" src="./img/logo.png">
+        <img id="logo" src="./images/logo.png">
 
         <ul id="header-ul">
             <li>Test</li>
@@ -16,7 +16,7 @@
         </ul>
         
         <div id="account">
-            <img id="account-img" src="./img/account.png">
+            <img id="account-img" src="./images/account.png">
         </div>
 
 
@@ -31,7 +31,7 @@
     </div>
 
     <div id="header-mobile">
-        <img id="logo" src="./img/logo.png">
+        <img id="logo" src="./images/logo.png">
 
         <div id="hamburger_menu">
           <span></span>
@@ -45,14 +45,14 @@
                 <li>Test</li>
             </ul>
             <section id="account_section">
-                <img id="account-img" src="./img/account.png">
+                <img id="account-img" src="./images/account.png">
 
                 <h2>Log Uit</h2>
             </section>
         </div>
     </div>
 
-<script src="./main.js"></script>
+<script src="./js/header.js"></script>
 
 </body>
 </html>
