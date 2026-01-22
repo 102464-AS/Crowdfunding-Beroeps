@@ -22,7 +22,30 @@ body{
     height: clamp(220px, 35vh, 318px);
     margin-top: clamp(20px, 54px, 5vh);
     margin-right: clamp(20px, 54px, 5vh);
+
+    & form{
+        display: flex;
+    }
+
+    & label{
+        font-size: 13px;
+        font-weight: 600;
+        color: #2b2b2b;
+    }
+
+    & input,
+    & textarea{
+        border-radius: 14px;
+        width: clamp(240px, 35vw, 220px);
+        height: clamp(56px, 8vh, 55px);
+        border: none;
+        outline: none;
+        font-size: 14px;
+        background-color: #7CA8D7;
+        color: #333;
+    }
 }
+
 
 #header{
     background-color: #6B7A5E;
@@ -73,7 +96,6 @@ body{
     }
 }
 
-
 #side-account{
     box-sizing: border-box;
     padding-left: 20px;
@@ -112,8 +134,10 @@ body{
     box-sizing: border-box;
     width: 100%;
     height: fit-content;
+    max-height: 80%;
     padding-left: 20px;
     padding-right: 20px;
+    overflow-y: auto;
 }
 
 .donation{
@@ -169,4 +193,62 @@ body{
         padding-right: clamp(20px, 4vw, 30px);
         padding-left: clamp(20px, 4vw, 30px);
     }
+}
+
+#styled-form{
+    display: flex;
+    align-items: flex-end;
+    gap: clamp(12px, 2vw, 24px);
+    padding: 30px;
+}
+
+.form-group{
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.form-group label{
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: #1f1f1f;
+}
+
+.form-group input{
+    width: clamp(180px, 22vw, 260px);
+    height: 56px;
+    border-radius: 14px;
+    border: none;
+    outline: none;
+    background-color: #7CA8D7;
+    padding: 0 18px;
+    font-size: 15px;
+    font-family: 'Poppins', sans-serif;
+    transition: 0.2s ease;
+}
+
+.form-group input:focus{
+    background-color: #8fb7e3;
+    transform: translateY(-1px);
+}
+
+#submit-btn{
+    width: 64px;
+    height: 56px;
+    border-radius: 16px;
+    border: none;
+    background-color: #FFD046;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#submit-btn:hover{
+    background-color: #FFC826;
+    transform: scale(1.05);
 }
