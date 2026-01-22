@@ -224,3 +224,14 @@ button.btn-outline-dark:hover img {
 .bg-mustard p {
   max-width: 520px;
 }
+
+/* =========================
+   FOOTER
+========================= */
+.footer-bar {
+  background-color: #6B7A5E;
+}
+
+.text-white-75 {
+  color: rgba(255, 255, 255, 0.75);
+}

@@ -16,16 +16,16 @@
 
 <!-- NAVBAR -->
 <?php
-include("./header.php")
+include("./header.php");
 ?>
 
 <!-- HERO -->
-<section class="hero d-flex align-items-center position-relative" style="height: 500px; overflow: hidden;">
-  <img src="./images/header.png" alt="Hero" class="position-absolute w-100 h-100" style="object-fit: cover;">
+<section class="hero d-flex align-items-center position-relative">
+  <img src="./images/header.png" alt="Hero" class="position-absolute w-100 h-100">
   <div class="hero-overlay position-absolute w-100 h-100"></div>
   <div class="container hero-content text-white position-relative">
-    <h1 class="fw-bold text-dark">oooooh placeholder magie</h1>
-    <button class="btn btn-light mt-3">Button</button>
+    <h1 class="fw-bold text-dark">Welcome to Our Platform</h1>
+    <button class="btn btn-light mt-3">Get Started</button>
   </div>
 </section>
 
@@ -65,26 +65,30 @@ include("./header.php")
       <div class="col-md-4"><input class="form-control" placeholder="Placeholder"></div>
       <div class="col-md-4"><input class="form-control" placeholder="Placeholder"></div>
       <div class="col-md-3"><input class="form-control" placeholder="Placeholder"></div>
-      <div class="col-md-1 text-end"><button class="btn btn-outline-dark"><img src= "./images/send-button.png"></img></button></div>
+      <div class="col-md-1 text-end"><button class="btn btn-outline-dark"><img src="./images/send-button.png" alt="Send"></button></div>
     </div>
   </div>
 </section>
 
-<!-- PROFILE SECTION -->
-<section class="bg-mustard py-5">
+<!-- FOOTER -->
+<footer class="text-white py-4 footer-bar">
   <div class="container">
-    <div class="row align-items-center">
-      <div class="col-md-4">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/9/99/Portrait_Placeholder.png"
-             class="img-fluid rounded" alt="Profile">
+    <div class="row">
+      <div class="col-md-4 mb-3">
+        <h5 class="fw-bold mb-2">About Us</h5>
+        <p class="small mb-0">Supporting creative projects and innovative ideas through community funding.</p>
       </div>
-      <div class="col-md-8">
-        <h1>H1</h1>
-        <p>P</p>
+      <div class="col-md-4 mb-3">
+        <h5 class="fw-bold mb-2">Contact</h5>
+        <p class="small mb-1 text-white-75">Email: <a href="mailto:crowdfunding@corporateslop.com" class="text-white text-decoration-none">crowdfunding@corporateslop.com</a></p>
+        <p class="small mb-0 text-white-75">Phone: +1 (555) 123-4567</p>
       </div>
     </div>
+    <div class="text-center text-white-75 mt-3">
+      <p class="small mb-0">&copy; 2026 Crowdfunding Platform. All rights reserved.</p>
+    </div>
   </div>
-</section>
+</footer>
 
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
