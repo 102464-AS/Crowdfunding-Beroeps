@@ -10,9 +10,7 @@
         <img id="logo" src="./images/logo.png">
 
         <ul id="header-ul">
-            <li>Test</li>
-            <li>Test</li>
-            <li>Test</li>
+            <li><a href="./index.php">Home</a></li>
         </ul>
         
         <div id="account">
@@ -21,12 +19,8 @@
 
 
         <ul id="account-ul">
-            <li>TEst</li>
-            <li>Test</li>
-            <li>Test</li>
-            <li>Test</li>
-            <li>Test</li>
-            <li>Test</li>
+            <li><a href="./profile.php">Profile</a></li>
+            <li><a href="./auth/logout.php">Logout</a></li>
         </ul>
     </div>
 
@@ -41,8 +35,7 @@
 
         <div id="mobile-side-bar">
             <ul>
-                <li>Test</li>
-                <li>Test</li>
+                <li><a href="./profile.php">Profile</a></li>
             </ul>
             <section id="account_section">
                 <img id="account-img" src="./images/account.png">

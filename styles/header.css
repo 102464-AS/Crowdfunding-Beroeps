@@ -116,6 +116,11 @@ html{
     align-items: center;
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
+
+    & a{
+        text-decoration: none;
+        color: inherit;
+    }
 }
 
 @media (max-width: 550px) {
@@ -145,7 +150,6 @@ html{
     opacity: 0;
     transform: scale(0.9); 
     transform-origin: top right;
-    pointer-events: none; 
     transition: opacity 0.3s ease, transform 0.3s ease;
 
     & a{
@@ -193,7 +197,6 @@ html{
 }
 
 #hamburger_menu.active {
-    pointer-events: none;
     transform: scale(0.9); 
     opacity: 0.6;            
 }
