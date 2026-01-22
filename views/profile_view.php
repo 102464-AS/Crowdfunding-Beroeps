@@ -4,21 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Acount pagina</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="./styles/profile.css">
 </head>
 <body>
-
-    <div id="header">
-    </div>
-
+    <?php
+    include("./header.php");
+    ?>
 
     <div id="container">
 
     <div id="side-bar"> 
         <div id="side-account">
             <div id="profile-img-container">
-                <!-- <img src="./user 4.png"> -->
-                 <img src="./user 4.png">
+                 <img src="./images/account.png">
             </div>
             <div id="profile-name"><h1>Bob</h1></div>
         </div>

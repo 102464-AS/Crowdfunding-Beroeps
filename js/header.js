@@ -52,3 +52,7 @@ hamburger_menu.addEventListener("click", () => {
     mobile_side_bar.classList.toggle("active")
     event.stopPropagation();
 });
+
+function navigateToPage(url){
+    window.location.href = url
+}

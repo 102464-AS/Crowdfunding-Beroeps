@@ -16,7 +16,7 @@ html{
     font-weight: 600;
 }
 
-#form_container{
+/* #form_container{
     box-sizing: border-box;
     background-color: #FFD046;
     border-radius: 20px;
@@ -46,7 +46,7 @@ html{
         background-color: #7CA8D7;
         color: #333;
     }
-}
+} */
 
 #logo{
     padding-left: clamp(10px, 5%, 30px);
@@ -151,6 +151,7 @@ html{
     transform: scale(0.9); 
     transform-origin: top right;
     transition: opacity 0.3s ease, transform 0.3s ease;
+    pointer-events: auto; 
 
     & a{
         text-decoration: none;
@@ -174,7 +175,7 @@ html{
 #account-ul.active{
         opacity: 1;
     transform: scale(1); 
-    pointer-events: auto; 
+    
 }
 
 #hamburger_menu {

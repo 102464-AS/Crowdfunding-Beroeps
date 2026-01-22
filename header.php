@@ -19,8 +19,8 @@
 
 
         <ul id="account-ul">
-            <li><a href="./profile.php">Profile</a></li>
-            <li><a href="./auth/logout.php">Logout</a></li>
+            <li onclick="navigateToPage('./profile.php')">Profile</li>
+            <li onclick="navigateToPage('./auth/logout.php')">Logout</li>
         </ul>
     </div>
 
