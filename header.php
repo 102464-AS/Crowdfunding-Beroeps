@@ -11,6 +11,7 @@
 
         <ul id="header-ul">
             <li><a href="./index.php">Home</a></li>
+            <li><a href"#">Explore</a></li>
         </ul>
         
         <div id="account">
