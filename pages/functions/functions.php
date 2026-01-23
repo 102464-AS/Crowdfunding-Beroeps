@@ -38,7 +38,7 @@ function fetchUser(PDO $pdo, int $ID): array {
             FROM donations
             GROUP BY user_id
         ) AS donation_sums ON u.user_id = donation_sums.user_id
-        WHERE u.user_id = :user_id;
+        WHERE u.user_id = :user_id
         ";
     $stmt = $pdo->prepare($query);
     $stmt->bindParam(':user_id', $ID, PDO::PARAM_INT);
