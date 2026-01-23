@@ -21,64 +21,13 @@
             <div id="profile-name"><h1><?=$userData[0]["username"];?></h1></div>
         </div>
         <div id="side-bar-recent-donations">
-            <h1>Donation</h1>
+            <h1>Total Donations</h1>
 
             <div id="donations-container">
                 <div class="donation">
-                    <h1 id="title">Title</h1>
-                    <h1 id="price">20</h1>
+                    <h1 id="title">Total:</h1>
+                    <h1 id="price">€<?=$userData[0]["total_donations"]?></h1>
                 </div>
-
-                <div class="donation">
-                    <h1 id="title">Title</h1>
-                    <h1 id="price">20</h1>
-                </div>
-
-                <div class="donation">
-                    <h1 id="title">Title</h1>
-                    <h1 id="price">20</h1>
-                </div>
-
-                <div class="donation">
-                    <h1 id="title">Title</h1>
-                    <h1 id="price">20</h1>
-                </div>
-
-                <div class="donation">
-                    <h1 id="title">Title</h1>
-                    <h1 id="price">20</h1>
-                </div>
-
-                <div class="donation">
-                    <h1 id="title">Title</h1>
-                    <h1 id="price">20</h1>
-                </div>
-
-                <div class="donation">
-                    <h1 id="title">Title</h1>
-                    <h1 id="price">20</h1>
-                </div>
-
-                <div class="donation">
-                    <h1 id="title">Title</h1>
-                    <h1 id="price">20</h1>
-                </div>
-
-                <div class="donation">
-                    <h1 id="title">Title</h1>
-                    <h1 id="price">20</h1>
-                </div>
-
-                <div class="donation">
-                    <h1 id="title">Title</h1>
-                    <h1 id="price">20</h1>
-                </div>
-
-                <div class="donation">
-                    <h1 id="title">Title</h1>
-                    <h1 id="price">20</h1>
-                </div>
-
             </div>
         </div>
     </div>
