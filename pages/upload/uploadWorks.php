@@ -42,7 +42,7 @@ if (empty($errors)) {
         $pdo->beginTransaction();
 
         $photoName = uniqid('', true) . '_' . preg_replace('/[^a-zA-Z0-9_\.-]/', '_', $_FILES['photo']['name']);
-        $targetPath = '../uploads/' . $photoName;
+        $targetPath = '../upload-img/' . $photoName;
 
         $fileTmp = $_FILES['photo']['tmp_name'];
 
