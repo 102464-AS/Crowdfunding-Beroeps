@@ -162,8 +162,83 @@ body{
 }
 
 #form_container{
-    width: clamp(100px, 50%, 600px);
-    height: clamp(400PX, 60%, 800PX);
-    background-color: gray;
-    padding
+  margin-top: clamp(20px, 54px, 5vh);
+  box-sizing: border-box;
+  width: clamp(280px, 45%, 520px);
+  max-width: 100%;
+  background-color: #FFD046;
+  border-radius: 16px;
+  padding: clamp(16px, 3vw, 28px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  align-self: flex-start;
+  margin-bottom: 20px;
+}
+
+#styled-form{
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  width: 100%;
+  font-family: 'Poppins', sans-serif;
+}
+
+.form-group{
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label{
+  font-weight: 600;
+  font-size: 13px;
+  color: black;
+}
+
+.form-group input{
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  background-color: #fff;
+  outline: none;
+  font-size: 14px;
+  transition: 0.2s ease;
+}
+
+.form-group input:focus{
+  border-color: #6B7A5E;
+  box-shadow: 0 0 0 2px rgba(107, 122, 94, 0.25);
+}
+
+#submit-btn{
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: none;
+  background-color: #6B7A5E;
+  color: white;
+  font-size: 20px;
+  align-self: flex-end;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+#submit-btn:hover{
+  transform: scale(1.05);
+  background-color: #5a6850;
+}
+
+#submit-btn:active{
+  transform: scale(0.95);
+}
+
+@media (max-width: 550px){
+    #form_container{
+      width: 93%;
+      padding: clamp(14px, 4vw, 20px);
+      margin: clamp(80px, 5vh, 120px) auto 0 auto;
+    }
 }
