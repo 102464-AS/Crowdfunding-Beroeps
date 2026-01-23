@@ -18,7 +18,7 @@
             <div id="profile-img-container">
                  <img src="./images/account.png">
             </div>
-            <div id="profile-name"><h1>Bob</h1></div>
+            <div id="profile-name"><h1><?=$userData[0]["username"];?></h1></div>
         </div>
         <div id="side-bar-recent-donations">
             <h1>Donation</h1>
@@ -85,20 +85,20 @@
 
 
     <div id="form_container">
-    <form id="styled-form">
+    <form id="styled-form" onsubmit="showWipAlert(event)">
         <div class="form-group">
         <label for="name">Name</label>
-        <input type="text" id="name" name="name" required>
+        <input type="text" id="name" name="name" value="<?=$userData[0]["name"]?>"  required>
         </div>
 
         <div class="form-group">
             <label for="email">Email</label>
-            <input type="email" id="email" name="email" required>
+            <input type="email" id="email" name="email" value="<?=$userData[0]["email"]?>" required>
         </div>
 
         <div class="form-group">
             <label for="password">Password</label>
-            <input type="password" id="password" name="password" required>
+            <input type="password" id="password" name="password" value=".........." required>
         </div>
 
         <button type="submit" id="submit-btn">
@@ -107,6 +107,12 @@
     </form>
     </div>
     </div>
-    
+
+    <script>
+    function showWipAlert(event) {
+        event.preventDefault(); 
+        alert("⚠️ This feature is a work in progress!");
+    }
+    </script>    
 </body>
 </html>

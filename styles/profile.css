@@ -160,3 +160,10 @@ body{
         padding-left: clamp(20px, 4vw, 30px);
     }
 }
+
+#form_container{
+    width: clamp(100px, 50%, 600px);
+    height: clamp(400PX, 60%, 800PX);
+    background-color: gray;
+    padding
+}
