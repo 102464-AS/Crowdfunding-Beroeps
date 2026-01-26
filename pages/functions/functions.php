@@ -16,6 +16,7 @@ function fetchHome(PDO $pdo): array {
 function fetchUser(PDO $pdo, int $ID): array {
     $query = "
         SELECT 
+            u.user_id,
             u.username,
             u.name,
             u.email,
@@ -26,8 +27,8 @@ function fetchUser(PDO $pdo, int $ID): array {
             work_counts.total_works,
             donation_sums.total_donations
         FROM users u
-        JOIN user_works uw ON u.user_id = uw.user_id
-        JOIN works w ON uw.work_id = w.work_id
+        LEFT JOIN user_works uw ON u.user_id = uw.user_id
+        LEFT JOIN works w ON uw.work_id = w.work_id
         LEFT JOIN (
             SELECT user_id, COUNT(*) AS total_works
             FROM user_works
@@ -39,9 +40,9 @@ function fetchUser(PDO $pdo, int $ID): array {
             GROUP BY user_id
         ) AS donation_sums ON u.user_id = donation_sums.user_id
         WHERE u.user_id = :user_id
-        ";
+    ";
     $stmt = $pdo->prepare($query);
-    $stmt->bindParam(':user_id', $ID, PDO::PARAM_INT);
+    $stmt->bindValue(':user_id', $ID, PDO::PARAM_INT);
     $stmt->execute();
 
     return $stmt->fetchAll(PDO::FETCH_ASSOC);

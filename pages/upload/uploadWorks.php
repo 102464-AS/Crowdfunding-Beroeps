@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 $sender = $_SERVER['HTTP_REFERER'];
-if (!empty($sender) && strpos($sender, '102575.stu.sd-lab.nl') === false) {
+if (!empty($sender) && strpos($sender, '102464.stu.sd-lab.nl') === false) {
     $errors['sender'] = "<p>Verkeerde afzender!</p>";
 }
 
@@ -42,7 +42,10 @@ if (empty($errors)) {
         $pdo->beginTransaction();
 
         $photoName = uniqid('', true) . '_' . preg_replace('/[^a-zA-Z0-9_\.-]/', '_', $_FILES['photo']['name']);
-        $targetPath = '../upload-img/' . $photoName;
+        $targetDir = dirname(__DIR__, 2) . '/upload-img/';
+        $targetPath = $targetDir . $photoName;
+        $photoUrl = '/Beroeps/Crowdfunding/upload-img/' . $photoName;
+
 
         $fileTmp = $_FILES['photo']['tmp_name'];
 
@@ -53,12 +56,16 @@ if (empty($errors)) {
 
         if (!move_uploaded_file($fileTmp, $targetPath)) {
             throw new Exception("Uploaden van foto mislukt.");
-        }
+        }   
 
-        $upload = uploadWorks($pdo, $_SESSION['user_id'], $title, $description, $photoName, $role);
+        $upload = uploadWorks($pdo, $_SESSION['user_id'], $title, $description, $photoUrl, $role);
 
         $pdo->commit();
-        echo "<p>Uploaden gelukt!</p>";
+         echo json_encode([
+         'success' => true,
+         'message' => "Uploaden gelukt!"
+        ]);
+    exit;
     } catch (Throwable $e) {
         $pdo->rollBack();
         if (file_exists($targetPath)) {

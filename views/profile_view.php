@@ -94,6 +94,8 @@
         <!-- Profile Form -->
         <div id="form_container">
             <form id="styled-form" onsubmit="showWipAlert(event)">
+                <h2>Edit Profile</h2>
+
                 <div class="form-group">
                     <label for="name">Name</label>
                     <input type="text" id="name" name="name" value="<?=$userData[0]["name"]?>" required>
@@ -105,7 +107,12 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="password">Password</label>
+                    <label for="password">New Password</label>
+                    <input type="password" id="password" name="password" value=".........." required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">New Password Repeat</label>
                     <input type="password" id="password" name="password" value=".........." required>
                 </div>
 
@@ -130,7 +137,8 @@
                 </button>
             </div>
             
-            <form id="add-work-form" onsubmit="submitWork(event)">
+            <iframe name="hidden_upload_frame" id="hidden_upload_frame" style="display:none;"></iframe>
+            <form action="./pages/upload/uploadWorks.php" id="add-work-form" method="POST" enctype="multipart/form-data" target="hidden_upload_frame">
                 <div class="form-group">
                     <label for="work-title">Title *</label>
                     <input type="text" id="work-title" name="title" required>
@@ -142,8 +150,8 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="work-photo">Photo URL</label>
-                    <input type="text" id="work-photo" name="photo" placeholder="https://example.com/image.jpg">
+                    <label for="work-photo">Upload Photo</label>
+                    <input type="file" id="work-photo" name="photo" accept="image/*" required>
                 </div>
 
                 <div class="form-group">
@@ -168,12 +176,11 @@
     <script>
     function showWipAlert(event) {
         event.preventDefault(); 
-        alert("⚠️ This feature is a work in progress!");
+        alert("This feature is a work in progress!");
     }
 
     function editWork(id) {
-        alert("Edit work #" + id);
-        // Add your edit functionality here
+        allert("This feature is a work in progress!");
     }
 
     function deleteWork(id) {
@@ -195,6 +202,13 @@
         }
     }
 
+    const form = document.getElementById('add-work-form');
+                            
+    form.addEventListener('submit', function() {
+        closeAddWorkModal()
+        console.log("form is sumbiting")
+    });
+
 
     function openAddWorkModal() {
         document.getElementById('add-work-modal').style.display = 'flex';
@@ -204,37 +218,8 @@
     function closeAddWorkModal() {
         document.getElementById('add-work-modal').style.display = 'none';
         document.body.style.overflow = 'auto';
-        document.getElementById('add-work-form').reset();
     }
 
-    function submitWork(event) {
-        event.preventDefault();
-                            
-        const formData = new FormData(event.target);
-
-        fetch('./uploadDonations.php', {
-            method: 'POST',
-            body: formData
-        })
-        .then(response => response.json())
-        .then(data => {
-            console.log('Received from PHP:', data);
-                            
-            if (data.success) {
-                alert(data.message); 
-                closeAddWorkModal();
-                event.target.reset();
-            } else {
-                alert('Fout bij het toevoegen van werk.');
-            }
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            alert('Er is een fout opgetreden.');
-        });
-    }
-
-    // Close modal when clicking outside
     window.onclick = function(event) {
         const modal = document.getElementById('add-work-modal');
         if (event.target === modal) {
