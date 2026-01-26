@@ -20,5 +20,5 @@ if (ini_get("session.use_cookies")) {
     );
 }
 
-header("Location: {main_page_name}.php");
+header("Location: ../index.php");
 exit;

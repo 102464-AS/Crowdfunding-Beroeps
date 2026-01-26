@@ -29,10 +29,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if ($user && password_verify($password1, $user['password'])) {
             session_regenerate_id(true);
 
-            $_SESSION['user_id'] = $user['id'];
+            $_SESSION['user_id'] = $user['user_id'];
             $_SESSION['username'] = $user['username'];
 
-            header("Location: {main_page_name}.php");
+            header("Location: ../index.php");
+            exit;
         } else {
             $error = "Username or Password doesn't match!";
         }

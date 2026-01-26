@@ -10,18 +10,18 @@ require_once "./auth/session.inc.php";
 require_once "./auth/auth.inc.php";
 require_once "./pages/functions/functions.php";
 
-// requireLogin();
+requireLogin();
 
-// try {
-//     $home = fetchHome($pdo);
-//     $aantalRows = count($home);
-// } catch (PDOException $e) {
-//     handleServerError($e);
-// }
+try {
+    $home = fetchHome($pdo);
+    $aantalRows = count($home);
+} catch (PDOException $e) {
+    handleServerError($e);
+}
 
-// echo '<script>';
-// echo 'console.log("' . session_id() . ' | ' . $_SESSION['username'] . '")';
-// echo '</script>';
+echo '<script>';
+echo 'console.log("' . session_id() . ' | ' . $_SESSION['username'] . '")';
+echo '</script>';
 
 include("views/index_view.php");
 ?>
