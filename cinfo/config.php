@@ -20,7 +20,7 @@ $options = [
 try {
     $pdo = new PDO("mysql:host=$servername;dbname=$mydb", $username, $password, $options);
 
-    echo 'Connected to the database successfully!';
+    // echo 'Connected to the database successfully!';
 } catch (PDOException $e) {
     echo 'Connection failed: ' . $e->getMessage();
 }

@@ -1,5 +1,10 @@
 <?php
 require './pages/functions/functions.php';
+require_once "./cinfo/config.php";
+
+session_start();
+
+$works = fetchWork($pdo, $_SESSION['user_id']);
 
 $userData = [
     [
@@ -14,14 +19,6 @@ $userData = [
         "total_donations" => 50.00
     ]
 ];
-
-$works = [
-    ['id' => 1, 'title' => 'AI Research Project'],
-    ['id' => 2, 'title' => 'Mobile App Development'],
-    ['id' => 3, 'title' => 'Online Learning Platform'],
-    ['id' => 4, 'title' => 'Educational Games']
-];
-
 
 include("./views/profile_view.php")
 ?>

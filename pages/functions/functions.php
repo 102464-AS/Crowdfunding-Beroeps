@@ -63,7 +63,7 @@ function fetchSessionUser(PDO $pdo): array {
 
 function fetchWorks(PDO $pdo): array {
     $query = "
-        SELECT w.title, w.description, w.photo, u.name
+        SELECT w.work_id AS work_id, w.title, w.description, w.photo, u.name
         FROM works w
         JOIN user_works uw ON w.work_id = uw.work_id
         JOIN users u       ON uw.user_id = u.user_id
@@ -74,23 +74,24 @@ function fetchWorks(PDO $pdo): array {
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
-function fetchWork(PDO $pdo, int $ID): array {
+function fetchWork(PDO $pdo, int $userId): array {
     $query = "
-    SELECT 
-        w.title,
-        w.description,
-        w.photo,
-        uw.role,
-        u.name,
-        d.amount
-    FROM works w
-    JOIN user_works uw ON w.work_id = uw.work_id
-    JOIN donations d   ON w.work_id = d.work_id
-    JOIN users u       ON d.user_id = u.user_id
-    WHERE uw.user_id = :user_id
-        ";
+        SELECT 
+            w.work_id,
+            w.title,
+            w.description,
+            w.photo,
+            uw.role,
+            creator.name AS name,
+            COALESCE(d.amount, 0) AS amount
+        FROM works w
+        JOIN user_works uw ON w.work_id = uw.work_id
+        JOIN users creator ON uw.user_id = creator.user_id
+        LEFT JOIN donations d ON w.work_id = d.work_id
+        WHERE uw.user_id = :user_id
+    ";
     $stmt = $pdo->prepare($query);
-    $stmt->bindParam(':user_id', $ID, PDO::PARAM_INT);
+    $stmt->bindValue(':user_id', $userId, PDO::PARAM_INT);
     $stmt->execute();
 
     return $stmt->fetchAll(PDO::FETCH_ASSOC);

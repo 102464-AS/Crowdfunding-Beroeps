@@ -35,22 +35,51 @@
     <div id="main-content">
         <!-- User Works Section -->
         <div id="works-container">
-            <h1 id="works-title">My Works</h1>
+            <div id="works-header">
+                <h1 id="works-title">My Works</h1>
+                <button id="add-work-btn" onclick="openAddWorkModal()">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="12" y1="5" x2="12" y2="19"></line>
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                </button>
+            </div>
             
             <div id="works-list">
-                <?php               
-                foreach($works as $work):
+                <!-- Works will be populated by PHP -->
+                <?php            
+                foreach($works as $index => $work):
                 ?>
-                <div class="work-item" data-id="<?= $work['id'] ?>">
-                    <span class="item-title"><?= $work['title'] ?></span>
+                <div class="work-item" data-index="<?= $index ?>" id="<?= $work['work_id'] ?>">
+                    <div class="work-photo">
+                        <?php if(!empty($work['photo'])): ?>
+                            <img src="<?= $work['photo'] ?>" alt="<?= $work['title'] ?>">
+                        <?php else: ?>
+                            <div class="work-photo-placeholder">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                                    <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                                    <polyline points="21 15 16 10 5 21"></polyline>
+                                </svg>
+                            </div>
+                        <?php endif; ?>
+                    </div>
+                    <div class="work-content">
+                        <h3 class="work-title"><?= $work['title'] ?></h3>
+                        <p class="work-description"><?= $work['description'] ?></p>
+                        <div class="work-meta">
+                            <span class="work-role"><?= $work['role'] ?>: <?= $work['name'] ?></span>
+                            <span class="work-amount">€<?= number_format($work['amount'], 2) ?></span>
+                        </div>
+                    </div>
                     <div class="item-actions">
-                        <button class="edit-btn" onclick="editWork(<?= $work['id'] ?>)">
+                        <button class="edit-btn" onclick="editWork(<?= $index ?>)">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
                                 <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
                             </svg>
                         </button>
-                        <button class="delete-btn" onclick="deleteWork(<?= $work['id'] ?>)">
+                        <button class="delete-btn" onclick="deleteWork(<?= $work['work_id'] ?>)">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <polyline points="3 6 5 6 21 6"></polyline>
                                 <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
@@ -88,6 +117,54 @@
     </div>
     </div>
 
+    <!-- Add Work Modal -->
+    <div id="add-work-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Add New Work</h2>
+                <button class="close-modal" onclick="closeAddWorkModal()">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+            
+            <form id="add-work-form" onsubmit="submitWork(event)">
+                <div class="form-group">
+                    <label for="work-title">Title *</label>
+                    <input type="text" id="work-title" name="title" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="work-description">Description *</label>
+                    <textarea id="work-description" name="description" rows="4" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="work-photo">Photo URL</label>
+                    <input type="text" id="work-photo" name="photo" placeholder="https://example.com/image.jpg">
+                </div>
+
+                <div class="form-group">
+                    <label for="work-role">Role *</label>
+                    <select id="work-role" name="role" required>
+                        <option value="">Select a role</option>
+                        <option value="Creator">Creator</option>
+                        <option value="Contributor">Contributor</option>
+                        <option value="Supporter">Supporter</option>
+                        <option value="Organizer">Organizer</option>
+                    </select>
+                </div>
+
+                <div class="modal-actions">
+                    <button type="button" class="btn-cancel" onclick="closeAddWorkModal()">Cancel</button>
+                    <button type="submit" class="btn-submit">Add Work</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
     <script>
     function showWipAlert(event) {
         event.preventDefault(); 
@@ -100,9 +177,68 @@
     }
 
     function deleteWork(id) {
-        if(confirm("Are you sure you want to delete this work?")) {
-            // Add your delete functionality here
-            alert("Delete work #" + id);
+        if (confirm("Are you sure you want to delete this work?")) {
+            fetch('delete_work.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: `workId=${id}`
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        }
+    }
+
+
+    function openAddWorkModal() {
+        document.getElementById('add-work-modal').style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeAddWorkModal() {
+        document.getElementById('add-work-modal').style.display = 'none';
+        document.body.style.overflow = 'auto';
+        document.getElementById('add-work-form').reset();
+    }
+
+    function submitWork(event) {
+        event.preventDefault();
+                            
+        const formData = new FormData(event.target);
+
+        fetch('./uploadDonations.php', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Received from PHP:', data);
+                            
+            if (data.success) {
+                alert(data.message); 
+                closeAddWorkModal();
+                event.target.reset();
+            } else {
+                alert('Fout bij het toevoegen van werk.');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Er is een fout opgetreden.');
+        });
+    }
+
+    // Close modal when clicking outside
+    window.onclick = function(event) {
+        const modal = document.getElementById('add-work-modal');
+        if (event.target === modal) {
+            closeAddWorkModal();
         }
     }
     </script>    
