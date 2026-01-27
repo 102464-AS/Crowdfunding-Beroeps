@@ -10,6 +10,7 @@
 
   <!-- Custom CSS -->
   <link rel="stylesheet" href="./styles/home.css">
+  <link rel="icon" type="image/x-icon" href="./images/logo.png">
 </head>
 
 <body>

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Donations</title>
     <link rel="stylesheet" href="./styles/donation.css">
+  <link rel="icon" type="image/x-icon" href="./images/logo.png">
 </head>
 <body>
     <!--nav-->

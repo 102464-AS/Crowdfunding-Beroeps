@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Acount pagina</title>
     <link rel="stylesheet" href="./styles/profile.css">
+    <link rel="icon" type="image/x-icon" href="./images/logo.png">
 </head>
 <body>
     <?php
