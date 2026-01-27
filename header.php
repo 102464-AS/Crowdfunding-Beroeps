@@ -1,54 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./styles/header.css">
-</head>
-<body>
-    <div id="header">
-        <img id="logo" src="./images/logo.png">
+<?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 
-        <ul id="header-ul">
-            <li><a href="./index.php">Home</a></li>
-            <li><a href"#">Explore</a></li>
-        </ul>
-        
-        <div id="account">
-            <img id="account-img" src="./images/account.png">
-        </div>
+$user_id = $_SESSION['user_id'] ?? null;
 
+if ($user_id == null) {
+    $logged_in = false;
+} else {
+    $logged_in = true;
+}
 
-        <ul id="account-ul">
-            <li onclick="navigateToPage('./profile.php')">Profile</li>
-            <li onclick="navigateToPage('./auth/logout.php')">Logout</li>
-        </ul>
-    </div>
-
-    <div id="header-mobile">
-        <img id="logo" src="./images/logo.png">
-
-        <div id="hamburger_menu">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-
-        <div id="mobile-side-bar">
-            <ul>
-                <li><a href="./index.php">Home</a></li>
-                <li><a href="./profile.php">Profile</a></li>
-            </ul>
-            <section id="account_section">
-                <img id="account-img" src="./images/account.png">
-
-                <h2>Log Uit</h2>
-            </section>
-        </div>
-    </div>
-
-<script src="./js/header.js"></script>
-
-</body>
-</html>
-
+include_once("views/header_view.php");
+?>
