@@ -11,7 +11,7 @@
 
         <ul id="header-ul">
             <li><a href="./index.php">Home</a></li>
-            <li><a href"#">Explore</a></li>
+            <li><a href="#">Explore</a></li>
         </ul>
 
         <?php if ($logged_in): ?>
@@ -43,13 +43,22 @@
         <div id="mobile-side-bar">
             <ul>
                 <li><a href="./index.php">Home</a></li>
-                <li><a href="./profile.php">Profile</a></li>
+                <?php if ($logged_in): ?>
+                    <li><a href="./profile.php">Profile</a></li>
+                <?php endif; ?>
             </ul>
-            <section id="account_section">
-                <img id="account-img" src="./images/account.png">
 
-                <h2>Log Uit</h2>
-            </section>
+            <?php if ($logged_in): ?>
+                <section id="account_section" onclick="navigateToPage('./auth/logout.php')">
+                    <img id="account-img" src="./images/account.png">
+                    <h2>Log Uit</h2>
+                </section>
+            <?php else: ?>
+                <div id="mobile-auth-buttons" style="display: flex; flex-direction: column; gap: 10px; padding: 20px; margin-top: auto;">
+                    <a href="./login/login.html" class="auth-btn login-btn">Login</a>
+                    <a href="./login/sign-up.html" class="auth-btn signup-btn">Sign Up</a>
+                </div>
+            <?php endif; ?>
         </div>
     </div>
 
