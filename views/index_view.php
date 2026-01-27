@@ -77,16 +77,30 @@ include("./header.php");
   </div>
 </section>
 
-<!-- DONATE SECTION -->
+<!-- Subscribe SECTION -->
 <section class="py-5 bg-mustard">
-  <div class="container bg-light-green rounded p-4">
-    <h3 class="text-center fw-bold mb-4">Donate</h3>
-    <div class="row g-3 align-items-center">
-      <div class="col-md-4"><input class="form-control" placeholder="Placeholder"></div>
-      <div class="col-md-4"><input class="form-control" placeholder="Placeholder"></div>
-      <div class="col-md-3"><input class="form-control" placeholder="Placeholder"></div>
-      <div class="col-md-1 text-end"><img src="./images/send-button.png" alt="Send"></button></div>
-    </div>
+  <div class="container bg-light-green rounded p-4 shadow-sm">
+    <h3 class="text-center fw-bold mb-4">Blijf betrokken bij onze actie</h3>
+    <form id="newsletterForm" class="row g-3 align-items-center">
+      <div class="col-md-4">
+        <input type="text" name="name" class="form-control" placeholder="Naam" required>
+      </div>
+      <div class="col-md-4">
+        <input type="email" name="email" class="form-control" placeholder="E-mailadres" required>
+      </div>
+      <div class="col-md-3">
+        <select name="type" class="form-select">
+          <option value="updates" selected>Ik wil updates ontvangen</option>
+          <option value="no-updates">Ik wil geen updates ontvangen</option>
+        </select>
+      </div>
+      <div class="col-md-1 text-center">
+        <button type="submit" style="background: none; border: none; padding: 0;">
+          <img src="./images/send-button.png" alt="Verzenden" style="width: 40px; height: auto; cursor: pointer;">
+        </button>
+      </div>
+    </form>
+    <div id="formMessage" class="mt-3 text-center" style="display: none; font-weight: bold;"></div>
   </div>
 </section>
 
