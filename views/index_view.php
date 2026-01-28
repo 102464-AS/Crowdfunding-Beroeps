@@ -25,8 +25,8 @@ include("./header.php");
   <img src="./images/headercard.png" alt="Hero" class="position-absolute w-100 h-100">
   <div class="hero-overlay position-absolute w-100 h-100"></div>
   <div class="container hero-content text-white position-relative">
-    <h1 class="fw-bold text-dark">Welcome to Our Platform</h1>
-    <button class="btn btn-light mt-3">Get Started</button>
+    <h1 class="fw-bold text-dark">Welkom op ons platform</h1>
+    <button class="btn btn-light mt-3">Ontdek onze projecten</button>
   </div>
 </section>
 
@@ -110,8 +110,8 @@ include("./header.php");
   <div class="container">
     <div class="row">
       <div class="col-md-4 mb-3">
-        <h5 class="fw-bold mb-2">About Us</h5>
-        <p class="small mb-0">Supporting creative projects and innovative ideas through community funding.</p>
+        <h5 class="fw-bold mb-2">Over ons</h5>
+        <p class="small mb-0">Ondersteun creatieve projecten en innovatieve ideeën via community-financiering.</p>
       </div>
       <div class="col-md-4 mb-3">
         <h5 class="fw-bold mb-2">Contact</h5>
