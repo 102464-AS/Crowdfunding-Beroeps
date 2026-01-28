@@ -84,17 +84,17 @@ function fetchWork(PDO $pdo, int $userId): array {
             w.photo,
             uw.role,
             creator.name AS name,
-            COALESCE(d.amount, 0) AS amount
+            COALESCE(SUM(d.amount), 0) AS amount
         FROM works w
         JOIN user_works uw ON w.work_id = uw.work_id
         JOIN users creator ON uw.user_id = creator.user_id
         LEFT JOIN donations d ON w.work_id = d.work_id
         WHERE uw.user_id = :user_id
+        GROUP BY w.work_id, w.title, w.description, w.photo, uw.role, creator.name
     ";
     $stmt = $pdo->prepare($query);
     $stmt->bindValue(':user_id', $userId, PDO::PARAM_INT);
     $stmt->execute();
-
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 

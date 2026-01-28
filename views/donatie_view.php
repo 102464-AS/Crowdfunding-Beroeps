@@ -12,17 +12,20 @@
     <?php
     include("./header.php");
     ?>
+
+    <div id="work_id" data-work-id="<?=$work_id?>"></div>
+
     <!--nav end-->
     <div id="maincontent">
          <!--1-->
     <div id="work">
-        <div id="name" class="divs"><p class="text" id="nametext">Name</p></div>
+        <div id="name" class="divs"><p class="text" id="nametext"><?=$work[0]['title']?></p></div>
 
-        <img id="mainImg" class="imgs" src="images/placeholder.png" alt="">
-        <img id="smallImg1" class="imgs" src="images/placeholder.png" alt="">
-        <img id="smallImg2" class="imgs" src="images/placeholder.png" alt="">
+        <img id="mainImg" class="imgs" src="<?=$work[0]['photo']?>" alt="">
+        <img id="smallImg1" class="imgs" src="<?=$work[0]['photo']?>" alt="">
+        <img id="smallImg2" class="imgs" src="<?=$work[0]['photo']?>" alt="">
 
-        <div id="description" class="divs"></div>
+        <div id="description" class="divs"><p class="text"><?=$work[0]['description']?></p></div>
     </div>
     <!--1end-->
     <!--2-->
@@ -40,18 +43,6 @@
 
         <div id="customBTN" class="donationBTNS"><p class="text">€?</p></div>
         <div id="custom" class="donationDivs"><p class="text">Custom donation</p></div>
-
-        <div id="goalWrapper" class="donationDivs">
-            <div id="goalTitleBox"><p id="goalTitle" class="goaltext" >Goal</p></div>
-
-            <div id="goalbox">
-                <p id="start" class="goaltext">€0</p>
-                <p id="end" class="goaltext">€500</p>
-                <div id="goalBar">
-                    <div id="goal"></div>
-                </div>
-            </div>
-        </div>
     </div>
     <!--2end-->
     </div>
