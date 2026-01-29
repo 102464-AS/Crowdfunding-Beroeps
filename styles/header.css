@@ -59,6 +59,8 @@ html {
   display: flex;
   gap: clamp(10px, 15%, 65px);
   list-style: none;
+  margin-top: inherit;
+  padding-left: inherit;
 
   & a {
     text-decoration: none;

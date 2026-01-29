@@ -34,7 +34,7 @@ include("./header.php");
 <section class="bg-mustard py-5">
   <div class="container">
     <h2 class="text-center fw-bold mb-4">Onze Projecten</h2>
-    <p class="text-center mb-5">Ontdek inspirerende fotografieprojecten die je kunt steunen. Samen leggen we bijzondere verhalen en momenten vast.</p>
+    <!-- <p class="text-center mb-5">Ontdek inspirerende fotografieprojecten die je kunt steunen. Samen leggen we bijzondere verhalen en momenten vast.</p> -->
     <div class="row text-center g-4">
       <div class="col-md-6 col-lg-3">
         <div class="card h-100">
