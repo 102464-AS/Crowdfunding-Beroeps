@@ -11,7 +11,7 @@
 
         <ul id="header-ul">
             <li><a href="./index.php">Home</a></li>
-            <li><a href="#">Explore</a></li>
+            <li><a href="./explore.php">Explore</a></li>
         </ul>
 
         <?php if ($logged_in): ?>
@@ -43,7 +43,7 @@
         <div id="mobile-side-bar">
             <ul>
                 <li><a href="./index.php">Home</a></li>
-                <li><a href="#">Explore</a></li>
+                <li><a href="./explore.php">Explore</a></li>
                 <?php if ($logged_in): ?>
                     <li><a href="./profile.php">Profile</a></li>
                 <?php endif; ?>

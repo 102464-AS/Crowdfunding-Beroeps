@@ -17,18 +17,23 @@
 <div id="maincontent">
     <div id="imgs">
 
-        <?php
-        include './TestDataBase/test.php';
-
-        foreach ($items as $item) { ?>
-            <a href="donationPage/donation.html?id=<?= $item['id'] ?>">
+        <?php foreach ($works as $work) { ?>
+            <a href="./donatie.php?work_id=<?= $work['work_id'] ?>">
                 <div class="photobox">
-                    <img class="itemimgs" src="<?= htmlspecialchars($item['img']) ?>"  alt="<?= htmlspecialchars($item['name']) ?>">
-                    <p class="itemname"> <?= htmlspecialchars($item['name']) ?> </p>
+                    <img class="itemimgs" 
+                         src="<?= htmlspecialchars($work['photo']) ?>" 
+                         alt="<?= htmlspecialchars($work['title']) ?>">
+                    
+                    <p class="itemname">
+                        <?= htmlspecialchars($work['title']) ?>
+                    </p>
                 </div>
             </a>
         <?php } ?>
+
     </div>
+</div>
+
 
     <div id="filter"></div>
 </div>
