@@ -7,12 +7,9 @@
     <link rel="stylesheet" href="./styles/explorestyle.css">
 </head>
 <body>
-
-
-    <?php
-    include("./header.php");
-    ?>
-
+<?php
+include("./header.php");
+?>
 
 <div id="maincontent">
     <div id="imgs">

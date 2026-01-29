@@ -34,7 +34,7 @@ function createPopup() {
     let amount = selectedDonation.replace("€", "").trim();
 
     //102464.stu.sd-lab.nl/Beroeps/Crowdfunding/pages/upload/uploadDonationsforWork.php
-    fetch("/Beroeps/Crowdfunding/pages/upload/uploadDonationsforWork.php", {
+    fetch("/beroeps2/Beroeps_CrowdFunding/pages/upload/uploadDonationsforWork.php", {
       method: "POST",
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",

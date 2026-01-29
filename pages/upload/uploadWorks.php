@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $photoUploaded = isset($_FILES['photo']) && $_FILES['photo']['error'] === UPLOAD_ERR_OK;
 
     $sender = $_SERVER['HTTP_REFERER'] ?? '';
-    if (!empty($sender) && strpos($sender, '102464.stu.sd-lab.nl') === false) {
+    if (!empty($sender) && strpos($sender, '102575.stu.sd-lab.nl') === false) {
         $errors['sender'] = "Verkeerde afzender!";
     }
 
@@ -33,14 +33,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $pdo->beginTransaction();
 
             $photoName = uniqid('', true) . '_' . preg_replace('/[^a-zA-Z0-9_\.-]/', '_', $_FILES['photo']['name']);
-            $targetDir = $_SERVER['DOCUMENT_ROOT'] . '/Beroeps/Crowdfunding/upload-img/';
+            $targetDir = $_SERVER['DOCUMENT_ROOT'] . '/beroeps2/Beroeps_CrowdFunding/pages/upload-img/';
             
             if (!is_dir($targetDir)) {
                 mkdir($targetDir, 0755, true);
             }
 
             $targetPath = $targetDir . $photoName;
-            $photoUrl = '/Beroeps/Crowdfunding/upload-img/' . $photoName;
+            $photoUrl = '/beroeps2/Beroeps_CrowdFunding/pages/upload-img/'. $photoName;
             $fileTmp = $_FILES['photo']['tmp_name'];
 
             $imageInfo = getimagesize($fileTmp);

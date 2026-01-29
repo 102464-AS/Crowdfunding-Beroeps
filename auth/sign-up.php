@@ -66,7 +66,7 @@ function loginUser(string $username): void
 {
     session_regenerate_id(true);
     $_SESSION['username'] = $username;
-    header("Location: main_page.php");
+    header("Location: ../index.php");
     exit;
 }
 
