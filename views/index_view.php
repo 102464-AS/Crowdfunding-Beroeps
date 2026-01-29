@@ -33,43 +33,45 @@ include("./header.php");
 <!-- CARDS -->
 <section class="bg-mustard py-5">
   <div class="container">
+    <h2 class="text-center fw-bold mb-4">Onze Projecten</h2>
+    <p class="text-center mb-5">Ontdek inspirerende fotografieprojecten die je kunt steunen. Samen leggen we bijzondere verhalen en momenten vast.</p>
     <div class="row text-center g-4">
       <div class="col-md-6 col-lg-3">
         <div class="card h-100">
-          <img src="./images/research.png" class="card-img-top" alt="afbeelding van een wetenschapper">
+          <img src="./images/fotografie.png" class="card-img-top" alt="afbeelding van een fotograaf aan het werk in een studio">
           <div class="card-body">
-            <h5 class="card-title">Onderzoek</h5>
-            <p class="card-text">Steun wetenschappelijk onderzoek dat onze toekomst vormt en nieuwe ontdekkingen mogelijk maakt.</p>
+            <h5 class="card-title">Documentaire Fotografie</h5>
+            <p class="card-text">Steun projecten die maatschappelijke thema’s en bijzondere verhalen in beeld brengen door de lens van getalenteerde fotografen.</p>
             <button class="btn btn-primary" disabled>Go somewhere</button>
           </div>
         </div>
       </div>
       <div class="col-md-6 col-lg-3">
         <div class="card h-100">
-          <img src="./images/redpanda.png" class="card-img-top" alt="afbeelding van een rode panda">
+          <img src="./images/camera.png" class="card-img-top" alt="afbeelding van een camera in de natuur">
           <div class="card-body">
-            <h5 class="card-title">Natuurbehoud</h5>
-            <p class="card-text">Help bedreigde diersoorten beschermen en hun habitat behouden voor toekomstige generaties.</p>
+            <h5 class="card-title">Natuurfotografie</h5>
+            <p class="card-text">Help fotografen unieke beelden van flora en fauna vastleggen en aandacht vragen voor natuurbehoud.</p>
             <button class="btn btn-primary" disabled>Go somewhere</button>
           </div>
         </div>
       </div>
       <div class="col-md-6 col-lg-3">
         <div class="card h-100">
-          <img src="./images/foodbank.png" class="card-img-top" alt="afbeelding van een voedselbank">
+          <img src="./images/cameraset.png" class="card-img-top" alt="afbeelding van een set camera's en opnameapparatuur">
           <div class="card-body">
-            <h5 class="card-title">Voedselzekerheid</h5>
-            <p class="card-text">Zorg dat niemand honger hoeft te lijden door voedselbanken en voedselhulp te ondersteunen.</p>
+            <h5 class="card-title">Fotografie Apparatuur</h5>
+            <p class="card-text">Draag bij aan de aanschaf van professionele camera’s en accessoires voor ambitieuze fotografen en projecten.</p>
             <button class="btn btn-primary" disabled>Go somewhere</button>
           </div>
         </div>
       </div>
       <div class="col-md-6 col-lg-3">
         <div class="card h-100">
-          <img src="./images/school.png" class="card-img-top" alt="afbeelding van een school">
+          <img src="./images/student.png" class="card-img-top" alt="afbeelding van een student die fotografie studeert">
           <div class="card-body">
-            <h5 class="card-title">Onderwijs</h5>
-            <p class="card-text">Geef kinderen toegang tot kwaliteitsonderwijs en gelijke kansen voor een beter leven.</p>
+            <h5 class="card-title">Fotografie Educatie</h5>
+            <p class="card-text">Geef jonge talenten de kans om zich te ontwikkelen via workshops, cursussen en educatieve fotografieprojecten.</p>
             <button class="btn btn-primary" disabled>Go somewhere</button>
           </div>
         </div>
