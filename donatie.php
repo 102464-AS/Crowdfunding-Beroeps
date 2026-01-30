@@ -5,6 +5,7 @@ error_reporting(E_ALL);
 
 require './pages/functions/functions.php';
 require_once "./cinfo/config.php";
+require_once "./auth/auth.inc.php";
 
 $work_id = isset($_GET['work_id']) ? (int) $_GET['work_id'] : null;
 
@@ -12,6 +13,15 @@ if (!$work_id) {
     header("Location: ./index.php"); 
     exit();
 }
+
+session_start();
+
+$user_id = $_SESSION['user_id'] ?? null;
+
+if ($user_id == null) {
+    requireLogin('./donatie.php');
+}
+
 
 $works = fetchWorks($pdo);
 
