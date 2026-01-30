@@ -41,7 +41,8 @@ include("./header.php");
           <img src="./images/fotografie.png" class="card-img-top" alt="afbeelding van een fotograaf aan het werk in een studio">
           <div class="card-body">
             <h5 class="card-title">Documentaire Fotografie</h5>
-            <p class="card-text">Steun projecten die maatschappelijke thema’s en bijzondere verhalen in beeld brengen door de lens van getalenteerde fotografen.</p>
+            <p class="card-text">Steun projecten die maatschappelijke thema's en bijzondere verhalen in beeld brengen door de lens van getalenteerde fotografen.</p>
+            <a href="./project_detail.php?id=1" class="btn btn-primary">Bekijk</a>
           </div>
         </div>
       </div>
@@ -51,6 +52,7 @@ include("./header.php");
           <div class="card-body">
             <h5 class="card-title">Natuurfotografie</h5>
             <p class="card-text">Help fotografen unieke beelden van flora en fauna vastleggen en aandacht vragen voor natuurbehoud.</p>
+            <a href="./project_detail.php?id=2" class="btn btn-primary">Bekijk</a>
           </div>
         </div>
       </div>
@@ -59,7 +61,8 @@ include("./header.php");
           <img src="./images/cameraset.png" class="card-img-top" alt="afbeelding van een set camera's en opnameapparatuur">
           <div class="card-body">
             <h5 class="card-title">Fotografie Apparatuur</h5>
-            <p class="card-text">Draag bij aan de aanschaf van professionele camera’s en accessoires voor ambitieuze fotografen en projecten.</p>
+            <p class="card-text">Draag bij aan de aanschaf van professionele camera's en accessoires voor ambitieuze fotografen en projecten.</p>
+            <a href="./project_detail.php?id=3" class="btn btn-primary">Bekijk</a>
           </div>
         </div>
       </div>
@@ -69,6 +72,7 @@ include("./header.php");
           <div class="card-body">
             <h5 class="card-title">Fotografie Educatie</h5>
             <p class="card-text">Geef jonge talenten de kans om zich te ontwikkelen via workshops, cursussen en educatieve fotografieprojecten.</p>
+            <a href="./project_detail.php?id=4" class="btn btn-primary">Bekijk</a>
           </div>
         </div>
       </div>
