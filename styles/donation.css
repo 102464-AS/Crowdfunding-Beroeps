@@ -438,3 +438,32 @@ body {
   background-color: #ff9800;
   color: white;
 }
+
+#donationAmountDisplay {
+  border-radius: 16px;
+  background-color: #bd9623;
+  color: white;
+}
+
+#selectedAmount {
+  color: #ffeaaf;
+}
+
+#rewardMessage {
+  border-radius: 16px;
+  background-color: #bd9623;
+  border-left-color: #ffeaaf;
+}
+
+#rewardText {
+  color: white;
+}
+
+#rewardMessage::before {
+  color: #ffeaaf;
+}
+
+.bg-light-green p {
+  font-size: 1rem;
+  line-height: 1.6;
+}

@@ -1,3 +1,10 @@
+// Reward messages for each donation amount
+const rewards = {
+  5: "Je ontvangt een mooie ansichtkaart met een foto van een student als dank voor je steun.",
+  10: "Je ontvangt een kleine A5-fotoprint van een foto uit de expositie, ideaal om in te lijsten.",
+  25: "Je ontvangt een grote A3-fotoprint en je naam wordt vermeld bij de expositie.",
+};
+
 function createPopup() {
   const popup = document.createElement("div");
   popup.id = "popupdiv";
@@ -5,6 +12,8 @@ function createPopup() {
   popup.style.display = "none";
   popup.innerHTML = `
     <div id="popupTitle"><p class="text">Payment Methods</p></div>
+    <div id="donationAmountDisplay"><p class="text">Donation: <span id="selectedAmount"></span></p></div>
+    <div id="rewardMessage"><p class="text" id="rewardText"></p></div>
     <div class="methods" id="ideal"><img src="./images/ideal.png" class="payimgs" id="idealimg"></div>
     <div class="methods" id="paypal"><img src="./images/paypal.png" class="payimgs"></div>
     <div class="methods" id="card"><img src="./images/creditcard.png" class="payimgs"></div>
@@ -26,7 +35,6 @@ function createPopup() {
     const workElement = document.getElementById("work_id");
     const selectedWorkId = workElement.dataset.workId;
     let amount = selectedDonation.replace("€", "").trim();
-
     fetch("./pages/upload/uploadDonationsforWork.php", {
       method: "POST",
       headers: {
@@ -66,20 +74,16 @@ function showMessage(message, type) {
   if (existingMessage) {
     existingMessage.remove();
   }
-
   // Create message element
   const messageDiv = document.createElement("div");
   messageDiv.id = "notification-message";
   messageDiv.className = `notification ${type}`;
   messageDiv.textContent = message;
-
   document.body.appendChild(messageDiv);
-
   // Show message with animation
   setTimeout(() => {
     messageDiv.classList.add("show");
   }, 10);
-
   // Auto-hide after 4 seconds
   setTimeout(() => {
     messageDiv.classList.remove("show");
@@ -92,11 +96,26 @@ function showMessage(message, type) {
 function showPopup() {
   const popup = document.getElementById("popupdiv");
   if (popup) {
+    // Update the donation amount display
+    const amountDisplay = document.getElementById("selectedAmount");
+    if (amountDisplay && selectedDonation) {
+      amountDisplay.textContent = selectedDonation;
+    }
+
+    // Update the reward message based on the selected amount
+    const rewardTextElement = document.getElementById("rewardText");
+    if (rewardTextElement && selectedDonation) {
+      const amount = selectedDonation.replace("€", "").trim();
+      rewardTextElement.textContent =
+        rewards[amount] || "Thank you for your support!";
+    }
+
     popup.style.display = "grid";
   }
 }
 
 createPopup();
+
 let selectedDonation = null;
 const buttons = document.querySelectorAll(".donationBTNS");
 for (const button of buttons) {

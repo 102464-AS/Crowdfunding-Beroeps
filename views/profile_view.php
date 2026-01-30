@@ -139,7 +139,7 @@
             </div>
             
             <iframe name="hidden_upload_frame" id="hidden_upload_frame" style="display:none;"></iframe>
-            <form action="./pages/upload/uploadWorks.php" id="add-work-form" method="POST" enctype="multipart/form-data" target="hidden_upload_frame">
+            <form action="./pages/upload/uploadWorks.php" id="add-work-form" method="POST" enctype="multipart/form-data" target="hidden_upload_frame">  
                 <div class="form-group">
                     <label for="work-title">Title *</label>
                     <input type="text" id="work-title" name="title" required>
@@ -156,8 +156,14 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="work-video">Upload Video</label>
-                     <input type="file" id="work-video" name="video" accept="video/*" required>
+                  <label for="work-video">Video URL</label>
+                  <input 
+                    type="url" 
+                    id="work-video" 
+                    name="video_url" 
+                    placeholder="https://youtube.com/..." 
+                    required
+                  >
                 </div>
 
                 <div class="form-group">

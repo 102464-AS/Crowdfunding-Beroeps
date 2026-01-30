@@ -39,8 +39,6 @@
         <div id="big" class="donationDivs"><p class="text">Big donation-></p></div>
         <div id="bigBTN" class="donationBTNS"><p class="text">€25</p></div>
 
-        <div id="customBTN" class="donationBTNS"><p class="text">€?</p></div>
-        <div id="custom" class="donationDivs"><p class="text"><-Custom donation</p></div>
     </div>
     <!--2end-->
     </div>

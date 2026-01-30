@@ -18,10 +18,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $role = isset($_POST['role']) ? trim(htmlspecialchars(strip_tags($_POST['role']), ENT_QUOTES, 'UTF-8')) : '';
     $photoUploaded = isset($_FILES['photo']) && $_FILES['photo']['error'] === UPLOAD_ERR_OK;
 
-    $sender = $_SERVER['HTTP_REFERER'] ?? '';
-    if (!empty($sender) && strpos($sender, '102575.stu.sd-lab.nl') === false) {
-        $errors['sender'] = "Verkeerde afzender!";
-    }
+    // $sender = $_SERVER['HTTP_REFERER'] ?? '';
+    // if (!empty($sender) && strpos($sender, '102575.stu.sd-lab.nl') === false) {
+    //     $errors['sender'] = "Verkeerde afzender!";
+    // }
 
     if (empty($title) || empty($description) || !$photoUploaded || empty($role)) {
         $errors['fields'] = "Alle velden zijn verplicht!";

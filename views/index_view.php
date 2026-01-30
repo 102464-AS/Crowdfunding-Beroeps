@@ -49,7 +49,7 @@ include("./header.php");
 
           <div class="card-body card-body-custom d-flex flex-column align-items-center">
             <h5 class="card-title">Mijn Stad in Beeld</h5>
-            <a href="./donatie.php?work_id=1" class="btn btn-primary mt-3">Steun dit project</a>
+            <a href="./donatie.php?work_id=7" class="btn btn-primary mt-3">Steun dit project</a>
           </div>
         </div>
       </div>
@@ -67,7 +67,7 @@ include("./header.php");
 
           <div class="card-body card-body-custom d-flex flex-column align-items-center">
             <h5 class="card-title">Natuur in Verandering</h5>
-            <a href="./donatie.php?work_id=2" class="btn btn-primary mt-3">Steun dit project</a>
+            <a href="./donatie.php?work_id=8" class="btn btn-primary mt-3">Steun dit project</a>
           </div>
         </div>
       </div>
@@ -85,7 +85,7 @@ include("./header.php");
 
           <div class="card-body card-body-custom d-flex flex-column align-items-center">
             <h5 class="card-title">Jong Talent</h5>
-            <a href="./donatie.php?work_id=3" class="btn btn-primary mt-3">Steun dit project</a>
+            <a href="./donatie.php?work_id=9" class="btn btn-primary mt-3">Steun dit project</a>
           </div>
         </div>
       </div>
@@ -103,7 +103,7 @@ include("./header.php");
 
           <div class="card-body card-body-custom d-flex flex-column align-items-center">
             <h5 class="card-title">Nacht van de Toekomst</h5>
-            <a href="./donatie.php?work_id=4" class="btn btn-primary mt-3">Steun dit project</a>
+            <a href="./donatie.php?work_id=10" class="btn btn-primary mt-3">Steun dit project</a>
           </div>
         </div>
       </div>
@@ -111,6 +111,43 @@ include("./header.php");
     </div>
   </div>
 </section>
+
+<!-- EXHIBITION INFO SECTION -->
+<section class="py-5 bg-mustard">
+  <div class="container">
+    <div class="row align-items-center g-4">
+      <div class="col-lg-6 expo-text">
+        <h2 class="fw-bold mb-3">Over de expositie</h2>
+        <p class="lead mb-3">
+          Deze expositie toont het beste werk van studenten Audiovisuele Media – Fotografie van het Grafisch Lyceum Rotterdam.
+        </p>
+        <p class="mb-3">
+          In verschillende projecten laten de studenten zien hoe zij zich ontwikkelen als fotograaf. Elk project vertelt een eigen verhaal en laat hun persoonlijke blik op de wereld zien, vastgelegd met de camera.
+        </p>
+        <p class="mb-4">
+          De onderwerpen lopen uiteen van stadsleven en natuur tot identiteit en toekomstvisies. Door een project te steunen, help je de studenten hun werk te presenteren én draag je bij aan het mogelijk maken van deze expositie.
+        </p>
+        <div class="expo-details">
+          <div class="detail-item mb-2">
+            <strong>Periode:</strong> Voorjaar 2026
+          </div>
+          <div class="detail-item mb-2">
+            <strong>Locatie:</strong> Grafisch Lyceum Rotterdam
+          </div>
+          <div class="detail-item">
+            <strong>Doel:</strong> Jonge fotografen een podium geven
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="expo-image-grid">
+          <img src="./images/istockphoto-664785504-612x612.jpg" alt="Impressie van studentenfotografie" class="img-fluid rounded shadow">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 
 <!-- Subscribe SECTION -->
 <section class="py-5 bg-mustard">
@@ -144,20 +181,41 @@ include("./header.php");
   <div class="container">
     <div class="row">
       <div class="col-md-4 mb-3">
-        <h5 class="fw-bold mb-2">Over ons</h5>
-        <p class="small mb-0">Ondersteun creatieve projecten en innovatieve ideeën via community-financiering.</p>
+        <h5 class="fw-bold mb-2">Over de expositie</h5>
+        <p class="small mb-0">
+          Deze website ondersteunt de jaarlijkse fotografie-expositie van GLR-studenten. 
+          Hier ontdek je jong talent en help je hun werk zichtbaar te maken.
+        </p>
       </div>
       <div class="col-md-4 mb-3">
         <h5 class="fw-bold mb-2">Contact</h5>
-        <p class="small mb-1 text-white-75">Email: <a href="mailto:crowdfunding@gmail.com" class="text-white text-decoration-none">crowdfunding@gmail.com</a></p>
-        <p class="small mb-0 text-white-75">Phone: +1 (555) 123-4567</p>
+        <p class="small mb-1 text-white-75">
+          Email: 
+          <a href="mailto:expo@glr.nl" class="text-white text-decoration-none">
+            expo@glr.nl
+          </a>
+        </p>
+        <p class="small mb-0 text-white-75">
+          Locatie: GLR Galerij, Rotterdam
+        </p>
+      </div>
+      <div class="col-md-4 mb-3">
+        <h5 class="fw-bold mb-2">Steun de makers</h5>
+        <p class="small mb-0">
+          Met jouw donatie help je studenten hun werk professioneel te presenteren 
+          en hun eerste stappen te zetten in de wereld van fotografie.
+        </p>
       </div>
     </div>
+
     <div class="text-center text-white-75 mt-3">
-      <p class="small mb-0">&copy; 2026 Crowdfunding Platform. All rights reserved.</p>
+      <p class="small mb-0">
+        &copy; 2026 GLR Studentenexpositie Fotografie. Alle rechten voorbehouden.
+      </p>
     </div>
   </div>
 </footer>
+
 
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
