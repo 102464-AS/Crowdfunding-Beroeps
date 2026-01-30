@@ -42,7 +42,6 @@ include("./header.php");
           <div class="card-body">
             <h5 class="card-title">Documentaire Fotografie</h5>
             <p class="card-text">Steun projecten die maatschappelijke thema’s en bijzondere verhalen in beeld brengen door de lens van getalenteerde fotografen.</p>
-            <button class="btn btn-primary" disabled>Go somewhere</button>
           </div>
         </div>
       </div>
@@ -52,7 +51,6 @@ include("./header.php");
           <div class="card-body">
             <h5 class="card-title">Natuurfotografie</h5>
             <p class="card-text">Help fotografen unieke beelden van flora en fauna vastleggen en aandacht vragen voor natuurbehoud.</p>
-            <button class="btn btn-primary" disabled>Go somewhere</button>
           </div>
         </div>
       </div>
@@ -62,7 +60,6 @@ include("./header.php");
           <div class="card-body">
             <h5 class="card-title">Fotografie Apparatuur</h5>
             <p class="card-text">Draag bij aan de aanschaf van professionele camera’s en accessoires voor ambitieuze fotografen en projecten.</p>
-            <button class="btn btn-primary" disabled>Go somewhere</button>
           </div>
         </div>
       </div>
@@ -72,7 +69,6 @@ include("./header.php");
           <div class="card-body">
             <h5 class="card-title">Fotografie Educatie</h5>
             <p class="card-text">Geef jonge talenten de kans om zich te ontwikkelen via workshops, cursussen en educatieve fotografieprojecten.</p>
-            <button class="btn btn-primary" disabled>Go somewhere</button>
           </div>
         </div>
       </div>
