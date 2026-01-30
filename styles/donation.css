@@ -49,7 +49,7 @@ body {
     grid-column: 1/1;
     grid-row: 1/1;
 } */
-.NavBTNS {
+/*.NavBTNS {
   text-decoration: none;
   color: white;
   font-size: 40px;
@@ -66,7 +66,7 @@ body {
   height: 80px;
   justify-self: end;
   margin-right: 30px;
-}
+}*/
 /*nav end*/
 /*1*/
 .divs {
@@ -80,14 +80,14 @@ body {
   grid-row: 2/2;
 
   display: grid;
-  grid-template-columns: 2fr 1fr;
-  grid-template-rows: auto 0.95fr 0.95fr auto;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr auto;
   padding: 1em;
   gap: 1em;
 }
 
 #name {
-  grid-column: 1/3;
+  grid-column: 1/1;
   grid-row: 1/1;
 
   height: 80px;
@@ -109,27 +109,12 @@ body {
   height: 650px;
   width: 650px;
 
-  grid-row: 2/4;
+  grid-row: 2/3;
   grid-column: 1/1;
 }
-#smallImg1 {
-  height: 300px;
-  width: 300px;
-
-  grid-row: 2/2;
-  grid-column: 2/2;
-}
-#smallImg2 {
-  height: 300px;
-  width: 300px;
-
-  grid-row: 3/3;
-  grid-column: 2/2;
-}
-
 #description {
-  grid-column: 1/3;
-  grid-row: 4/4;
+  grid-column: 1/1;
+  grid-row: 3/3;
 
   min-height: 100px;
   max-height: 300px;
@@ -161,6 +146,7 @@ body {
 .donationBTNS {
   background-color: #bd9623;
   border-radius: 16px;
+  box-shadow: 0px 0px 10px 1px black inset;
   align-content: center;
   justify-items: center;
   min-width: 100px;
@@ -169,6 +155,7 @@ body {
 .donationBTNS:hover {
   transition: ease-in-out 0.25s;
   background-color: #7ca8d7;
+  box-shadow: none;
 }
 #donationTitle {
   grid-column: 1/5;
@@ -272,13 +259,15 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: #7ca8d7;
+  background-color: #ffcc37;
   height: 70vh;
   min-height: 400px;
   width: 80vw;
   min-width: 400px;
   padding: 20px;
   border-radius: 16px;
+  border: 1px solid black;
+  box-shadow: 0px 0px 10px 1px black inset;
 
   display: grid;
   grid-template-rows: auto 1fr 1fr 1fr 1fr;
@@ -292,39 +281,52 @@ body {
   height: 75px;
   border-radius: 16px;
   border: none;
-  background-color: #355f86;
+  background-color: #bd9623;
+  box-shadow: 0px 0px 10px 1px black inset;
   color: white;
   font-size: 28px;
 
   grid-row: 5/5;
   grid-column: 2/3;
+  transition: ease-in-out 0.25s;
 }
 #closePopup:hover {
-  background-color: #4e7fb3;
+  background-color: #7ca8d7;
+  transition: ease-in-out 0.25s;
+  box-shadow: none;
 }
 #popupTitle {
-  grid-column: 2/3;
+  grid-column: 1/4;
   grid-row: 1/1;
   align-content: center;
   justify-items: center;
 
-  background-color: #355f86;
+  background-color: #6B7A5E;
+  box-shadow: 0px 0px 10px 1px black inset;
   border-radius: 16px;
   height: 75px;
   width: 100%;
 }
+.popuptext{
+  font-size: 32px;
+  color: white;
+}
 .methods {
-  background-color: #355f86;
+  background-color: #bd9623;
   border-radius: 16px;
+  box-shadow: 0px 0px 10px 1px black inset;
   height: 75px;
   width: 100%;
   display: grid;
   align-self: center;
   justify-items: center;
   align-content: center;
+  transition: ease-in-out 0.25s;
 }
 .methods:hover {
-  background-color: #4e7fb3;
+  transition: ease-in-out 0.25s;
+  background-color: #7ca8d7;
+  box-shadow: none;
 }
 #ideal {
   grid-column: 1/2;
@@ -339,11 +341,12 @@ body {
   grid-row: 4/4;
 }
 #pay {
-  background-color: #355f86;
+  background-color: #bd9623;
   grid-column: 3/4;
   grid-row: 2/5;
   width: 100%;
   border-radius: 16px;
+  box-shadow: 0px 0px 10px 1px black inset;
 
   display: grid;
   grid-template-columns: 1fr;
@@ -354,22 +357,26 @@ body {
   grid-row: 2/3;
   height: 75px;
   width: 75%;
-  background-color: #7ca8d7;
+  background-color: #ffcc37;
   border-radius: 16px;
+  box-shadow: 0px 0px 10px 1px black inset;
   justify-self: center;
   align-self: center;
   justify-items: center;
   align-content: center;
+  transition: ease-in-out 0.25s;
 }
 #paybutton:hover {
-  background-color: #a7d2ff;
+  background-color: #7ca8d7;
+  box-shadow: none;
+  transition: ease-in-out 0.25s;
 }
 .payimgs {
   width: 90%;
   height: 65px;
 }
 #idealimg {
-  width: 40%;
+  width: 65px;
 }
 /*popups end*/
 
@@ -378,41 +385,9 @@ body {
     grid-template-rows: auto 1fr 1fr;
     grid-template-columns: 1fr;
   }
-  #work {
-    grid-column: 1/1;
-    grid-row: 2/2;
-  }
   #donation-wrapper {
     grid-column: 1/1;
     grid-row: 3/3;
-  }
-}
-@media only screen and (max-width: 950px) {
-  #work {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto 0.95fr 0.95fr 0.95fr auto;
-  }
-  #mainImg {
-    grid-row: 2/4;
-    grid-column: 1/3;
-  }
-  #smallImg1 {
-    grid-row: 4/5;
-    grid-column: 1/1;
-  }
-  #smallImg2 {
-    grid-row: 4/5;
-    grid-column: 2/2;
-  }
-  #description {
-    grid-column: 1/3;
-    grid-row: 5/6;
-  }
-  #nav {
-    gap: 2em;
-  }
-  #user {
-    margin-right: 40px;
   }
 }
 @media only screen and (max-width: 700px) {
@@ -420,26 +395,10 @@ body {
     width: 500px;
     height: 500px;
   }
-  #smallImg1 {
-    width: 240px;
-    height: 240px;
-  }
-  #smallImg2 {
-    width: 240px;
-    height: 240px;
-  }
 }
 @media only screen and (max-width: 550px) {
   #mainImg {
     width: 450px;
     height: 450px;
-  }
-  #smallImg1 {
-    width: 220px;
-    height: 220px;
-  }
-  #smallImg2 {
-    width: 220px;
-    height: 220px;
   }
 }
