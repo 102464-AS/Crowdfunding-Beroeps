@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
 
 /* =========================
    COLOR VARIABLES
@@ -21,14 +21,13 @@
    GLOBAL
 ========================= */
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   color: var(--text-dark);
 }
 
 h5,
-p{
-
-  &:hover{
+p {
+  &:hover {
     cursor: default;
   }
 }
@@ -63,8 +62,9 @@ p{
 .hero-content h1 {
   font-size: 2.5rem;
   font-weight: 700;
-  color: var(--text-dark);
+  color: white !important;
   max-width: 520px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .hero-content button {
@@ -73,7 +73,7 @@ p{
 }
 
 .btn.btn-light.mt-3 {
-  background-color: #3F648B;
+  background-color: #3f648b;
   font-weight: 600;
 }
 
@@ -143,9 +143,166 @@ p{
    FOOTER
 ========================= */
 .footer-bar {
-  background-color: #6B7A5E;
+  background-color: #6b7a5e;
 }
 
 .text-white-75 {
   color: rgba(255, 255, 255, 0.75);
+}
+
+.project-card {
+  border-radius: 28px;
+  overflow: hidden;
+  background-color: #d8e2cf;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  display: flex;
+  flex-direction: column;
+}
+
+.project-top {
+  position: relative;
+  height: clamp(140px, 28vw, 200px);
+  background: #444;
+}
+
+.project-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.project-user {
+  position: absolute;
+  bottom: 12px;
+  left: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: white;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.project-user .avatar {
+  width: clamp(34px, 6vw, 44px);
+  height: clamp(34px, 6vw, 44px);
+  border-radius: 50%;
+  background: white;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+}
+
+.card-body-custom {
+  padding: 20px;
+  gap: 10px;
+  flex: 1 1 auto;
+  justify-content: center;
+}
+
+/* Title styling */
+.project-card .card-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  margin: 0;
+  color: #0b0b0b;
+}
+
+.project-card .btn-primary {
+  background-color: #b2bea6;
+  border-color: #b2bea6;
+  color: #000;
+  border-radius: 12px;
+  padding: 8px 18px;
+  min-width: 180px;
+}
+
+/* Hover */
+.project-card .btn-primary:hover,
+.project-card .btn-primary:focus {
+  background-color: #9faa8e;
+  border-color: #9faa8e;
+  color: #000;
+}
+
+@media (max-width: 575.98px) {
+  .card-body-custom {
+    padding: 16px;
+  }
+  .project-card .btn-primary {
+    min-width: 160px;
+  }
+}
+
+.bg-light-green input,
+.bg-light-green select {
+  background-color: var(--dark-blue);
+  color: var(--white);
+  border: 2px solid transparent;
+  border-radius: 10px;
+  padding: 12px;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.bg-light-green input::placeholder {
+  color: var(--text-light);
+}
+
+.bg-light-green input:hover,
+.bg-light-green select:hover {
+  background-color: #345474;
+}
+
+.bg-light-green input:focus,
+.bg-light-green select:focus {
+  outline: none;
+  background-color: #2f4d6b;
+  color: var(--white);
+}
+
+.bg-light-green select {
+  cursor: pointer;
+}
+
+#newsletterForm button img {
+  transition:
+    transform 0.2s ease,
+    filter 0.2s ease;
+}
+
+#newsletterForm button:hover img {
+  transform: scale(1.1);
+  filter: brightness(1.1);
+}
+
+#newsletterForm button:active img {
+  transform: scale(0.95);
+}
+
+#formMessage {
+  font-size: 0.95rem;
+  padding: 10px 14px;
+  border-radius: 10px;
+}
+
+#formMessage.success {
+  background-color: #cfe8c9;
+  color: #2e5a2e;
+}
+
+#formMessage.error {
+  background-color: #f3caca;
+  color: #7a1f1f;
+}
+
+.avatar {
+  width: clamp(34px, 6vw, 44px);
+  height: clamp(34px, 6vw, 44px);
+  border-radius: 50%;
+  object-fit: cover;
+  background: white;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
 }

@@ -25,8 +25,7 @@ include("./header.php");
   <img src="./images/headercard.png" alt="Hero" class="position-absolute w-100 h-100">
   <div class="hero-overlay position-absolute w-100 h-100"></div>
   <div class="container hero-content text-white position-relative">
-    <h1 class="fw-bold text-dark">Welkom op ons platform</h1>
-    <button class="btn btn-light mt-3">Ontdek onze projecten</button>
+    <h1 class="fw-bold text-dark">Steun de expositie van GLR Fotografen</h1>
   </div>
 </section>
 
@@ -34,48 +33,81 @@ include("./header.php");
 <section class="bg-mustard py-5">
   <div class="container">
     <h2 class="text-center fw-bold mb-4">Onze Projecten</h2>
-    <!-- <p class="text-center mb-5">Ontdek inspirerende fotografieprojecten die je kunt steunen. Samen leggen we bijzondere verhalen en momenten vast.</p> -->
-    <div class="row text-center g-4">
-      <div class="col-md-6 col-lg-3">
-        <div class="card h-100">
-          <img src="./images/fotografie.png" class="card-img-top" alt="afbeelding van een fotograaf aan het werk in een studio">
-          <div class="card-body">
-            <h5 class="card-title">Documentaire Fotografie</h5>
-            <p class="card-text">Steun projecten die maatschappelijke thema's en bijzondere verhalen in beeld brengen door de lens van getalenteerde fotografen.</p>
-            <a href="./project_detail.php?id=1" class="btn btn-primary">Bekijk</a>
+
+    <div class="row justify-content-center text-center g-4">
+
+      <!-- Card 1 -->
+      <div class="col-12 col-md-6 col-lg-3">
+        <div class="card project-card h-100 border-0">
+          <div class="project-top">
+            <img src="./images/mijn-stad-in-beeld.png" alt="fotograaf aan het werk" class="project-img">
+            <div class="project-user">
+              <img src="./images/person-1.jpg" alt="Profielfoto van student" class="avatar">
+              <span class="user-name">Samira Jansen</span>
+            </div>
+          </div>
+
+          <div class="card-body card-body-custom d-flex flex-column align-items-center">
+            <h5 class="card-title">Mijn Stad in Beeld</h5>
+            <a href="./donatie.php?work_id=1" class="btn btn-primary mt-3">Steun dit project</a>
           </div>
         </div>
       </div>
-      <div class="col-md-6 col-lg-3">
-        <div class="card h-100">
-          <img src="./images/camera.png" class="card-img-top" alt="afbeelding van een camera in de natuur">
-          <div class="card-body">
-            <h5 class="card-title">Natuurfotografie</h5>
-            <p class="card-text">Help fotografen unieke beelden van flora en fauna vastleggen en aandacht vragen voor natuurbehoud.</p>
-            <a href="./project_detail.php?id=2" class="btn btn-primary">Bekijk</a>
+
+      <!-- Card 2 -->
+      <div class="col-12 col-md-6 col-lg-3">
+        <div class="card project-card h-100 border-0">
+          <div class="project-top">
+            <img src="./images/camera.png" alt="camera in de natuur" class="project-img">
+            <div class="project-user">
+              <img src="./images/person-2.png" alt="Profielfoto van student" class="avatar">
+              <span class="user-name">Lucas Vermeer</span>
+            </div>
+          </div>
+
+          <div class="card-body card-body-custom d-flex flex-column align-items-center">
+            <h5 class="card-title">Natuur in Verandering</h5>
+            <a href="./donatie.php?work_id=2" class="btn btn-primary mt-3">Steun dit project</a>
           </div>
         </div>
       </div>
-      <div class="col-md-6 col-lg-3">
-        <div class="card h-100">
-          <img src="./images/cameraset.png" class="card-img-top" alt="afbeelding van een set camera's en opnameapparatuur">
-          <div class="card-body">
-            <h5 class="card-title">Fotografie Apparatuur</h5>
-            <p class="card-text">Draag bij aan de aanschaf van professionele camera's en accessoires voor ambitieuze fotografen en projecten.</p>
-            <a href="./project_detail.php?id=3" class="btn btn-primary">Bekijk</a>
+
+      <!-- Card 3 -->
+      <div class="col-12 col-md-6 col-lg-3">
+        <div class="card project-card h-100 border-0">
+          <div class="project-top">
+            <img src="./images/studentmetcamera.png" alt="set camera's" class="project-img">
+            <div class="project-user">
+              <img src="./images/person-3.jpg" alt="Profielfoto van student" class="avatar">
+              <span class="user-name">Amina El Idrissi</span>
+            </div>
+          </div>
+
+          <div class="card-body card-body-custom d-flex flex-column align-items-center">
+            <h5 class="card-title">Jong Talent</h5>
+            <a href="./donatie.php?work_id=3" class="btn btn-primary mt-3">Steun dit project</a>
           </div>
         </div>
       </div>
-      <div class="col-md-6 col-lg-3">
-        <div class="card h-100">
-          <img src="./images/student.png" class="card-img-top" alt="afbeelding van een student die fotografie studeert">
-          <div class="card-body">
-            <h5 class="card-title">Fotografie Educatie</h5>
-            <p class="card-text">Geef jonge talenten de kans om zich te ontwikkelen via workshops, cursussen en educatieve fotografieprojecten.</p>
-            <a href="./project_detail.php?id=4" class="btn btn-primary">Bekijk</a>
+
+      <!-- Card 4 -->
+      <div class="col-12 col-md-6 col-lg-3">
+        <div class="card project-card h-100 border-0">
+          <div class="project-top">
+            <img src="./images/skyline-donker.png" alt="student fotografie" class="project-img">
+            <div class="project-user">
+              <img src="./images/person-4.jpg" alt="Profielfoto van student" class="avatar">
+              <span class="user-name">Daan de Wit</span>
+            </div>
+          </div>
+
+          <div class="card-body card-body-custom d-flex flex-column align-items-center">
+            <h5 class="card-title">Nacht van de Toekomst</h5>
+            <a href="./donatie.php?work_id=4" class="btn btn-primary mt-3">Steun dit project</a>
           </div>
         </div>
       </div>
+
     </div>
   </div>
 </section>
