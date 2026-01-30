@@ -18,7 +18,7 @@ function validateInput(array $data): array
     $errors = [];
 
     if ($data['username'] === '' || $data['password'] === '') {
-        $errors[] = "Email en wachtwoord zijn verplicht!";
+        $errors[] = "username en wachtwoord zijn verplicht!";
     }
     if ($data['name'] === '') {
         $errors[] = "Naam is verplicht!";
@@ -29,11 +29,15 @@ function validateInput(array $data): array
         $errors[] = "Ongeldig e-mailadres!";
     }
 
-    $begin = strtotime($data['DoB']);
-    if ($begin === false) {
-        $errors[] = "Onbegrijpelijke datum invoer!";
+    if ($data['DoB'] === '') {
+        $errors[] = "Geboortedatum is verplicht!";
     } else {
-        $data['DoB'] = date("Y-m-d", $begin);
+        $begin = strtotime($data['DoB']);
+        if ($begin === false) {
+            $errors[] = "Onbegrijpelijke datum invoer!";
+        } else {
+            $data['DoB'] = date("Y-m-d", $begin);
+        }
     }
 
     return ['errors' => $errors, 'data' => $data];
@@ -58,7 +62,7 @@ function registerUser(PDO $pdo, array $data): bool|string
         ]);
         return true;
     } catch (PDOException $e) {
-        if ($e->getCode() == 23000) return "Username already exists!";
+        if ($e->getCode() == 23000) return "Username or Email already exists!";
         return "Database error!";
     }
 }
@@ -74,7 +78,7 @@ function loginUser(string $username): void
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $input = [
         'username' => sanitizeInput($_POST['username'] ?? ''),
-        'password' => sanitizeInput($_POST['password'] ?? ''),
+        'password' => $_POST['password'] ?? '',
         'name' => sanitizeInput($_POST['name'] ?? ''),
         'email' => sanitizeInput($_POST['email'] ?? ''),
         'DoB' => sanitizeInput($_POST['DoB'] ?? ''),
@@ -91,9 +95,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if ($result === true) {
             loginUser($input['username']);
         } else {
-            $errorMessages[] = $result;
+            $_SESSION['errors'] = [$result];
             header("Location: ../login/sign-up.html");
             exit;
         }
+    } else {
+        $_SESSION['errors'] = $errorMessages;
+        header("Location: ../login/sign-up.html");
+        exit;
     }
 }
