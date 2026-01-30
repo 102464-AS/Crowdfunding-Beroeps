@@ -45,15 +45,16 @@ function registerUser(PDO $pdo, array $data): bool|string
 
     try {
         $stmt = $pdo->prepare(
-            "INSERT INTO users (username, password, name, email, DoB) 
-            VALUES (:username, :password, :name, :email, :DoB)"
+            "INSERT INTO users (username, password, name, email, DoB, about) 
+            VALUES (:username, :password, :name, :email, :DoB, :about)"
         );
         $stmt->execute([
             'username' => $data['username'],
             'password' => $hashedPassword,
             'name' => $data['name'],
             'email' => $data['email'],
-            'DoB' => $data['DoB']
+            'DoB' => $data['DoB'],
+            'about' => $data['about']
         ]);
         return true;
     } catch (PDOException $e) {
@@ -77,6 +78,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         'name' => sanitizeInput($_POST['name'] ?? ''),
         'email' => sanitizeInput($_POST['email'] ?? ''),
         'DoB' => sanitizeInput($_POST['DoB'] ?? ''),
+        'about' => sanitizeInput($_POST['about'] ?? '')
     ];
 
     $validation = validateInput($input);
@@ -90,6 +92,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             loginUser($input['username']);
         } else {
             $errorMessages[] = $result;
+            header("Location: ../login/sign-up.html");
+            exit;
         }
     }
 }
