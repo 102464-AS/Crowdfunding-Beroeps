@@ -21,7 +21,7 @@
     <div id="work">
         <div id="name" class="divs"><p class="text" id="nametext"><?=$work[0]['title']?></p></div>
 
-        <img id="mainImg" class="imgs" src="./images/placeholder.png">
+        <img id="mainImg" class="imgs" src="<?=$work[0]['photo']?>">
 
         <div id="description" class="divs"><p class="text"><?=$work[0]['description']?></p></div>
     </div>
