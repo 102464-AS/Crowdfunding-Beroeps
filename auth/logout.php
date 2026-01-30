@@ -20,5 +20,6 @@ if (ini_get("session.use_cookies")) {
     );
 }
 
-header("Location: ../index.php");
+$redirect = $_SERVER['HTTP_REFERER'] ?? '../index.php';
+header("Location: $redirect");
 exit;

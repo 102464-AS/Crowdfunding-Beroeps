@@ -1,10 +1,14 @@
 <?php
 declare(strict_types=1);
 
-function requireLogin(): void
+function requireLogin($redirect = null): void
 {
+    if (empty($redirect)) {
+        $redirect = "./index.php";
+    }
+
     if (empty($_SESSION['username'])) {
-        header('Location: ./login/login.html', true, 302);
+        header("Location: ./login/login.html?redirect=" . $redirect, true, 302);
         exit;
     }
 }

@@ -19,7 +19,7 @@ session_start();
 $user_id = $_SESSION['user_id'] ?? null;
 
 if ($user_id == null) {
-    requireLogin('./donatie.php');
+    requireLogin('./donatie.php?work_id=' . $work_id);
 }
 
 
