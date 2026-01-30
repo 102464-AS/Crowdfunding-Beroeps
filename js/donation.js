@@ -2,9 +2,7 @@ function createPopup() {
   const popup = document.createElement("div");
   popup.id = "popupdiv";
   popup.className = "popupdivs";
-
   popup.style.display = "none";
-
   popup.innerHTML = `
     <div id="popupTitle"><p class="text">Payment Methods</p></div>
     <div class="methods" id="ideal"><img src="./images/ideal.png" class="payimgs" id="idealimg"></div>
@@ -14,7 +12,6 @@ function createPopup() {
     <div id="paybutton"><p class="text" >Pay</p></div>
     </div>
     <button id='closePopup'>Close</button>`;
-
   document.body.appendChild(popup);
 
   document.getElementById("closePopup").addEventListener("click", function () {
@@ -23,18 +20,14 @@ function createPopup() {
 
   document.getElementById("pay").addEventListener("click", function () {
     if (!selectedDonation) {
-      alert("Select a donation amount!");
+      showMessage("Please select a donation amount!", "error");
       return;
     }
-
     const workElement = document.getElementById("work_id");
-
     const selectedWorkId = workElement.dataset.workId;
-
     let amount = selectedDonation.replace("€", "").trim();
 
-    //102464.stu.sd-lab.nl/Beroeps/Crowdfunding/pages/upload/uploadDonationsforWork.php
-    fetch("/beroeps2/Beroeps_CrowdFunding/pages/upload/uploadDonationsforWork.php", {
+    fetch("./pages/upload/uploadDonationsforWork.php", {
       method: "POST",
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
@@ -47,12 +40,56 @@ function createPopup() {
     })
       .then((response) => response.text())
       .then((data) => {
-        console.log("PHP response:", data);
+        const jsonData = JSON.parse(data);
+        if (jsonData.success === true) {
+          const popup = document.getElementById("popupdiv");
+          popup.style.display = "none";
+          showMessage(
+            "Payment successful! Thank you for your donation! 🎉",
+            "success",
+          );
+          console.log("Successfully sent");
+        } else {
+          showMessage(
+            jsonData.message || "Payment failed. Please try again.",
+            "error",
+          );
+        }
       })
       .catch((error) => {
         console.error("Error:", error);
+        showMessage("An error occurred. Please try again later.", "error");
       });
   });
+}
+
+function showMessage(message, type) {
+  // Remove existing message if any
+  const existingMessage = document.getElementById("notification-message");
+  if (existingMessage) {
+    existingMessage.remove();
+  }
+
+  // Create message element
+  const messageDiv = document.createElement("div");
+  messageDiv.id = "notification-message";
+  messageDiv.className = `notification ${type}`;
+  messageDiv.textContent = message;
+
+  document.body.appendChild(messageDiv);
+
+  // Show message with animation
+  setTimeout(() => {
+    messageDiv.classList.add("show");
+  }, 10);
+
+  // Auto-hide after 4 seconds
+  setTimeout(() => {
+    messageDiv.classList.remove("show");
+    setTimeout(() => {
+      messageDiv.remove();
+    }, 300);
+  }, 4000);
 }
 
 function showPopup() {
@@ -63,15 +100,11 @@ function showPopup() {
 }
 
 createPopup();
-
 let selectedDonation = null;
-
 const buttons = document.querySelectorAll(".donationBTNS");
-
 for (const button of buttons) {
   button.addEventListener("click", function () {
     selectedDonation = this.innerText.trim();
-
     showPopup();
   });
 }
