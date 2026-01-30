@@ -44,14 +44,11 @@ function createPopup() {
         if (jsonData.success === true) {
           const popup = document.getElementById("popupdiv");
           popup.style.display = "none";
-          showMessage(
-            "Payment successful! Thank you for your donation! 🎉",
-            "success",
-          );
+          showMessage("Betaling geslaagd! Bedankt voor je donatie!", "success");
           console.log("Successfully sent");
         } else {
           showMessage(
-            jsonData.message || "Payment failed. Please try again.",
+            jsonData.message || "Betaling mislukt. Probeer het opnieuw..",
             "error",
           );
         }
