@@ -156,6 +156,11 @@
                 </div>
 
                 <div class="form-group">
+                    <label for="work-video">Upload Video</label>
+                     <input type="file" id="work-video" name="video" accept="video/*" required>
+                </div>
+
+                <div class="form-group">
                     <label for="work-role">Role *</label>
                     <select id="work-role" name="role" required>
                         <option value="">Select a role</option>
