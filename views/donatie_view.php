@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Donations</title>
     <link rel="stylesheet" href="./styles/donation.css">
-  <link rel="icon" type="image/x-icon" href="./images/logo.png">
+    <link rel="icon" type="image/x-icon" href="./images/logo.png">
 </head>
 <body>
     <!--nav-->
@@ -21,9 +21,7 @@
     <div id="work">
         <div id="name" class="divs"><p class="text" id="nametext"><?=$work[0]['title']?></p></div>
 
-        <img id="mainImg" class="imgs" src="<?=$work[0]['photo']?>" alt="">
-        <img id="smallImg1" class="imgs" src="<?=$work[0]['photo']?>" alt="">
-        <img id="smallImg2" class="imgs" src="<?=$work[0]['photo']?>" alt="">
+        <img id="mainImg" class="imgs" src="./images/placeholder.png">
 
         <div id="description" class="divs"><p class="text"><?=$work[0]['description']?></p></div>
     </div>
@@ -32,17 +30,17 @@
     <div id="donation-wrapper">
         <div id="donationTitle" class="donationDivs"><p id="donationTitletext">Donations</p></div>
 
-        <div id="small" class="donationDivs"><p class="text">Small donation</p></div>
+        <div id="small" class="donationDivs"><p class="text">Small donation-></p></div>
         <div id="smallBTN" class="donationBTNS"><p class="text">€5</p></div>
 
         <div id="mediumBTN" class="donationBTNS"><p class="text">€10</p></div>
-        <div id="medium" class="donationDivs"><p class="text">Medium donation</p></div>
+        <div id="medium" class="donationDivs"><p class="text"><-Medium donation</p></div>
 
-        <div id="big" class="donationDivs"><p class="text">Big donation</p></div>
+        <div id="big" class="donationDivs"><p class="text">Big donation-></p></div>
         <div id="bigBTN" class="donationBTNS"><p class="text">€25</p></div>
 
         <div id="customBTN" class="donationBTNS"><p class="text">€?</p></div>
-        <div id="custom" class="donationDivs"><p class="text">Custom donation</p></div>
+        <div id="custom" class="donationDivs"><p class="text"><-Custom donation</p></div>
     </div>
     <!--2end-->
     </div>
