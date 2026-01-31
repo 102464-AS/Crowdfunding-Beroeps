@@ -54,6 +54,30 @@ function createPopup() {
           popup.style.display = "none";
           showMessage("Betaling geslaagd! Bedankt voor je donatie!", "success");
           console.log("Successfully sent");
+
+          const startEl = document.getElementById("start");
+          const endEl = document.getElementById("end");
+          const goalBar = document.getElementById("goal");
+
+          let currentAmount = parseFloat(startEl.textContent.replace("€", ""));
+          let goalAmount = parseFloat(endEl.textContent.replace("€", ""));
+
+          const donationValue = parseFloat(amount);
+
+          currentAmount += donationValue;
+
+          startEl.textContent = "€" + currentAmount.toFixed(2);
+
+          let percentage = (currentAmount / goalAmount) * 100;
+
+          if (percentage > 100) percentage = 100;
+
+          const minPercentage = 5;
+          if (percentage > 0 && percentage < minPercentage) {
+            percentage = minPercentage;
+          }
+
+          goalBar.style.width = percentage + "%";
         } else {
           showMessage(
             jsonData.message || "Betaling mislukt. Probeer het opnieuw..",
