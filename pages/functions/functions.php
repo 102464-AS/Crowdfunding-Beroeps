@@ -64,11 +64,26 @@ function fetchSessionUser(PDO $pdo): array {
 
 function fetchWorks(PDO $pdo): array {
     $query = "
-        SELECT w.work_id AS work_id, w.title, w.description, w.photo, u.name
+        SELECT 
+            w.work_id,
+            w.title,
+            w.description,
+            w.photo,
+            u.name,
+            w.goal,
+            COALESCE(SUM(d.amount), 0) AS amount
         FROM works w
         JOIN user_works uw ON w.work_id = uw.work_id
         JOIN users u       ON uw.user_id = u.user_id
-        ";
+        LEFT JOIN donations d ON w.work_id = d.work_id
+        GROUP BY
+            w.work_id,
+            w.title,
+            w.description,
+            w.photo,
+            u.name
+    ";
+
     $stmt = $pdo->prepare($query);
     $stmt->execute();
 
@@ -83,6 +98,7 @@ function fetchWork(PDO $pdo, int $userId): array {
             w.description,
             w.photo,
             uw.role,
+            w.goal,
             creator.name AS name,
             COALESCE(SUM(d.amount), 0) AS amount
         FROM works w

@@ -124,3 +124,20 @@ for (const button of buttons) {
     showPopup();
   });
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  const startEl = document.getElementById("start");
+  const endEl = document.getElementById("end");
+  const goalBar = document.getElementById("goal");
+
+  const currentAmount = parseFloat(startEl.textContent.replace("€", ""));
+  const goalAmount = parseFloat(endEl.textContent.replace("€", ""));
+
+  if (goalAmount > 0) {
+    let percentage = (currentAmount / goalAmount) * 100;
+
+    if (percentage > 100) percentage = 100;
+
+    goalBar.style.width = percentage + "%";
+  }
+});

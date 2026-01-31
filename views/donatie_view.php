@@ -39,6 +39,17 @@
         <div id="big" class="donationDivs"><p class="text">Big donation-></p></div>
         <div id="bigBTN" class="donationBTNS"><p class="text">€25</p></div>
 
+        <div id="goalWrapper" class="donationDivs">
+            <div id="goalTitleBox"><p id="goalTitle" class="goaltext" >Goal</p></div>
+
+            <div id="goalbox">
+                <p id="start" class="goaltext">€<?=$work[0]['amount']?></p>
+                <p id="end" class="goaltext">€<?=$work[0]['goal']?></p>
+                <div id="goalBar">
+                    <div id="goal"></div>
+                </div>
+            </div>
+        </div>
     </div>
     <!--2end-->
     </div>
