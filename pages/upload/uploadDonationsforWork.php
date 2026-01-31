@@ -26,10 +26,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
-// if (!empty($_SERVER['HTTP_REFERER']) &&
-//     strpos($_SERVER['HTTP_REFERER'], '102575.stu.sd-lab.nl') === false) {
-//     $errors['sender'] = "<p>Verkeerde afzender!</p>";
-// }
+if (!empty($_SERVER['HTTP_REFERER']) &&
+    strpos($_SERVER['HTTP_REFERER'], '102575.stu.sd-lab.nl') === false) {
+    $errors['sender'] = "<p>Verkeerde afzender!</p>";
+}
 
 if ($amount === null || $amount <= 0) {
     $errors['amount'] = "<p>Ongeldig donatiebedrag.</p>";
