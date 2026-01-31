@@ -151,6 +151,18 @@
                 </div>
 
                 <div class="form-group">
+                <label for="work-goal">Donation Goal (€) *</label>
+                <input 
+                    type="number" 
+                    id="work-goal" 
+                    name="goal" 
+                    min="1" 
+                    step="0.01" 
+                    placeholder="500" 
+                    required
+                >
+
+                <div class="form-group">
                     <label for="work-photo">Upload Photo</label>
                     <input type="file" id="work-photo" name="photo" accept="image/*" required>
                 </div>

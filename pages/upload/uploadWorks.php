@@ -17,6 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $description = isset($_POST['description']) ? trim(htmlspecialchars(strip_tags($_POST['description']), ENT_QUOTES, 'UTF-8')) : '';
     $role = isset($_POST['role']) ? trim(htmlspecialchars(strip_tags($_POST['role']), ENT_QUOTES, 'UTF-8')) : '';
     $photoUploaded = isset($_FILES['photo']) && $_FILES['photo']['error'] === UPLOAD_ERR_OK;
+    $goal = isset($_POST['goal']) ? (float) $_POST['goal'] : 0;
 
     $sender = $_SERVER['HTTP_REFERER'] ?? '';
     if (!empty($sender) && strpos($sender, '102575.stu.sd-lab.nl') === false) {
@@ -52,7 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 throw new Exception("Uploaden mislukt: Controleer folder permissies.");
             }   
 
-            uploadWorks($pdo, $_SESSION['user_id'], $title, $description, $photoUrl, $role);
+            uploadWorks($pdo, $_SESSION['user_id'], $title, $description, $photoUrl, $role, $goal);
             
             $pdo->commit();
             

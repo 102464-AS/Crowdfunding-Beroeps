@@ -121,12 +121,13 @@ function fetchWork(PDO $pdo, int $userId): array {
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
-function uploadWorks(PDO $pdo, int $userId, string $title, string $description, string $photo, string $role): string {
-    $queryWorks = "INSERT INTO works (title, description, photo) VALUES (:title, :description, :photo)";
+function uploadWorks(PDO $pdo, int $userId, string $title, string $description, string $photo, string $role, float $goal): string {
+    $queryWorks = "INSERT INTO works (title, description, photo, goal) VALUES (:title, :description, :photo, :goal)";
     $stmt = $pdo->prepare($queryWorks);
     $stmt->bindParam(':title', $title);
     $stmt->bindParam(':description', $description);
     $stmt->bindParam(':photo', $photo);
+    $stmt->bindParam(':goal', $goal);
     $stmt->execute();
 
     $workId = $pdo->lastInsertId();
