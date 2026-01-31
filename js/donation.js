@@ -79,6 +79,7 @@ function createPopup() {
 
           goalBar.style.width = percentage + "%";
         } else {
+          console.warn("Payment failed:", jsonData);
           showMessage(
             jsonData.message || "Betaling mislukt. Probeer het opnieuw..",
             "error",
