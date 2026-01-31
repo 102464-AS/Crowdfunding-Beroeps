@@ -43,7 +43,7 @@ function validateInput(array $data): array
     return ['errors' => $errors, 'data' => $data];
 }
 
-function registerUser(PDO $pdo, array $data): bool|string
+function registerUser(PDO $pdo, array $data): int|string
 {
     $hashedPassword = password_hash($data['password'], PASSWORD_DEFAULT);
 
@@ -60,16 +60,18 @@ function registerUser(PDO $pdo, array $data): bool|string
             'DoB' => $data['DoB'],
             'about' => $data['about']
         ]);
-        return true;
+        
+        return (int)$pdo->lastInsertId();
     } catch (PDOException $e) {
         if ($e->getCode() == 23000) return "Username or Email already exists!";
         return "Database error!";
     }
 }
 
-function loginUser(string $username): void
+function loginUser(int $userId, string $username): void
 {
     session_regenerate_id(true);
+    $_SESSION['user_id'] = $userId;
     $_SESSION['username'] = $username;
     header("Location: ../index.php");
     exit;
@@ -92,8 +94,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (empty($errorMessages)) {
         $result = registerUser($pdo, $input);
 
-        if ($result === true) {
-            loginUser($input['username']);
+        if (is_int($result)) {
+            loginUser($result, $input['username']);          
         } else {
             $_SESSION['errors'] = [$result];
             header("Location: ../login/sign-up.html");
