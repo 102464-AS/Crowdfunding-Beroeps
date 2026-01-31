@@ -121,7 +121,7 @@ function fetchWork(PDO $pdo, int $userId): array {
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
-function uploadWorks(PDO $pdo, int $userId, string $title, string $description, string $photo, string $role, float $goal): string {
+function uploadWorks(PDO $pdo, int $userId, string $title, string $description, string $photo, string $role, float $goal): array {
     $queryWorks = "INSERT INTO works (title, description, photo, goal) VALUES (:title, :description, :photo, :goal)";
     $stmt = $pdo->prepare($queryWorks);
     $stmt->bindParam(':title', $title);
@@ -145,7 +145,10 @@ function uploadWorks(PDO $pdo, int $userId, string $title, string $description, 
         $resultaat = "Er is iets fout gegaan en het item is niet toegevoegd!";
     }
 
-    return $resultaat;
+    return [
+        'work_id' => $workId,
+        'result' => $resultaat
+    ];
 }
 
 function uploadDonationsForWork(PDO $pdo, int $workId, float $amount): string {

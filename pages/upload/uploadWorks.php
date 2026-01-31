@@ -53,11 +53,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 throw new Exception("Uploaden mislukt: Controleer folder permissies.");
             }   
 
-            uploadWorks($pdo, $_SESSION['user_id'], $title, $description, $photoUrl, $role, $goal);
+            $result = uploadWorks($pdo, $_SESSION['user_id'], $title, $description, $photoUrl, $role, $goal);
+            $workId = $result['work_id'];
             
             $pdo->commit();
-            
-            echo json_encode(['success' => true, 'message' => "Uploaden gelukt!"]);
+            echo json_encode(['success' => true, 'work' => ['work_id' => $workId, 'title' => $title, 'description' => $description, 'photo' => $photoUrl, 'role' => $role, 'name' => $_SESSION['username'], 'amount' => 0, 'goal' => $goal]]);
             exit;
 
         } catch (Throwable $e) {

@@ -138,8 +138,9 @@
                 </button>
             </div>
             
-            <iframe name="hidden_upload_frame" id="hidden_upload_frame" style="display:none;"></iframe>
-            <form action="./pages/upload/uploadWorks.php" id="add-work-form" method="POST" enctype="multipart/form-data" target="hidden_upload_frame">  
+            <!-- <iframe name="hidden_upload_frame" id="hidden_upload_frame" style="display:none;"></iframe> -->
+            <!-- <form action="./pages/upload/uploadWorks.php" id="add-work-form" method="POST" enctype="multipart/form-data" target="hidden_upload_frame">   -->
+            <form id="add-work-form" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="work-title">Title *</label>
                     <input type="text" id="work-title" name="title" required>
@@ -209,6 +210,7 @@
 
     function deleteWork(id) {
         if (confirm("Are you sure you want to delete this work?")) {
+            document.getElementById(id).remove();
             fetch('delete_work.php', {
                 method: 'POST',
                 headers: {
@@ -228,11 +230,80 @@
 
     const form = document.getElementById('add-work-form');
                             
-    form.addEventListener('submit', function() {
-        closeAddWorkModal()
-        console.log("form is sumbiting")
+    form.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const formData = new FormData(form);
+
+        fetch("./pages/upload/uploadWorks.php", {
+          method: "POST",
+          body: formData
+        })
+          .then(res => res.json())
+          .then(data => {
+            if (data.success) {
+              add_work(data.work); 
+              closeAddWorkModal();
+              form.reset();
+            } else {
+              alert("Upload failed");
+              console.log(data);
+            }
+          })
+          .catch(err => console.error("Error:", err));
     });
 
+    function add_work(work) {
+        const worksList = document.getElementById("works-list");
+
+        const workItem = document.createElement("div");
+        workItem.className = "work-item";
+        workItem.id = work.work_id;
+
+        const amount = parseFloat(work.amount ?? 0).toFixed(2);
+
+        workItem.innerHTML = `
+          <div class="work-photo">
+            ${
+              work.photo
+                ? `<img src="${work.photo}" alt="${work.title}">`
+                : `<div class="work-photo-placeholder">
+                      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                        <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                        <polyline points="21 15 16 10 5 21"></polyline>
+                      </svg>
+                   </div>`
+            }
+          </div>
+
+          <div class="work-content">
+            <h3 class="work-title">${work.title}</h3>
+            <p class="work-description">${work.description}</p>
+            <div class="work-meta">
+              <span class="work-role">${work.role}: ${work.name}</span>
+              <span class="work-amount">€${amount}</span>
+            </div>
+          </div>
+
+          <div class="item-actions">
+            <button class="edit-btn" onclick="editWork(${work.work_id})">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                    <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+                </svg>
+            </button>
+            <button class="delete-btn" onclick="deleteWork(${work.work_id})">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="3 6 5 6 21 6"></polyline>
+                    <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                </svg>
+            </button>
+          </div>
+        `;
+
+        worksList.appendChild(workItem); 
+    }
 
     function openAddWorkModal() {
         document.getElementById('add-work-modal').style.display = 'flex';
