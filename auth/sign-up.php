@@ -98,7 +98,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             loginUser($result, $input['username']);          
         } else {
             $_SESSION['errors'] = [$result];
-            header("Location: ../login/sign-up.html");
+            header("Location: ../login/login.html");
             exit;
         }
     } else {
