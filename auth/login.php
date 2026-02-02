@@ -32,16 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_SESSION['user_id'] = $user['user_id'];
             $_SESSION['username'] = $user['username'];
 
-            // header("Location: ../index.php");
-           $redirect = $_POST['redirect'] ?? 'index.php';
-
-            if (empty($redirect)) {
-                $redirect = 'index.php';
-            }
-            
-            $redirect = ltrim($redirect, './');
-
-            header("Location: ../" . $redirect);
+            header("Location: ../index.php");
             exit;
         } else {
             $error = "Username or Password doesn't match!";
