@@ -127,7 +127,11 @@ p {
   height: 100%;
   width: 100%;
 }
-
+.project-card:hover{
+    scale: 1.05;
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.5);
+    transition: ease-in-out 0.12s;
+}
 /* =========================
    PROFILE SECTION
 ========================= */
